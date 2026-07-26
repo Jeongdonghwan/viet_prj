@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>라오스결혼 — 라오스 유일의 직영 국제결혼정보회사</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E3557;--navy-mid:#2C4A78;--navy-deep:#12223A;
+  --gold:#C9A05C;--gold-hot:#B8873D;--gold-light:#F0E3C8;
+  --ink:#22293A;--ink-soft:#66708A;
+  --bg:#FFFFFF;--bg-warm:#F8F8F7;--line:#E9E8E4;
+  --serif:'Noto Serif KR',serif;--sans:'Pretendard',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+
+
+.ph{background:linear-gradient(135deg,#F1EFEA,#E6E3DB);display:flex;align-items:center;justify-content:center;color:#ABA595;font-size:11.5px;font-weight:600;text-align:center;padding:10px;border-radius:12px;letter-spacing:-.2px}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.12s}.rv-d2{transition-delay:.24s}.rv-d3{transition-delay:.36s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+/* header */
+header{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.hd{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--serif);font-weight:900;font-size:23px;color:var(--navy);letter-spacing:-.5px}
+.logo span{color:var(--gold-hot);font-size:12px;font-family:var(--sans);font-weight:700;margin-left:6px;vertical-align:3px;letter-spacing:2px}
+nav.gnb{display:flex;gap:28px;font-weight:600;font-size:15.5px}
+nav.gnb a{padding:4px 0;position:relative}
+nav.gnb a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--gold);transition:width .25s}
+nav.gnb a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;font-weight:800;cursor:pointer;border:none;transition:transform .18s,box-shadow .18s,background .18s}
+.btn:active{transform:scale(.97)}
+.btn-navy{background:var(--navy);color:#fff;padding:11px 20px;font-size:14.5px}
+.btn-navy:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,53,87,.28)}
+.hamburger{display:none;background:none;border:none;color:var(--navy);cursor:pointer;padding:4px}
+.hamburger svg{width:24px;height:24px;display:block}
+@media(max-width:900px){nav.gnb{display:none}.hamburger{display:block}}
+.m-nav{display:none;background:#fff;border-bottom:1px solid var(--line)}
+.m-nav.open{display:block}
+.m-nav a{display:block;padding:14px 22px;border-top:1px solid #F1EBDE;font-weight:600}
+
+/* HERO — 화이트 */
+.hero{background:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;padding-top:84px;padding-bottom:84px;align-items:center;position:relative;z-index:2}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--bg-warm);border:1px solid var(--line);color:var(--navy);font-size:13px;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:24px}
+.hero .eyebrow .live{width:8px;height:8px;border-radius:50%;background:#31B057;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(49,176,87,.5)}50%{box-shadow:0 0 0 7px rgba(49,176,87,0)}}
+.hero h1{font-family:var(--serif);font-size:52px;line-height:1.26;font-weight:900;letter-spacing:-1.5px;margin-bottom:20px;color:var(--navy)}
+.hero h1 .hl{position:relative;display:inline-block;color:var(--gold-hot)}
+.hero h1 .hl::after{content:'';position:absolute;left:0;right:0;bottom:5px;height:13px;background:rgba(201,160,92,.22);z-index:-1;transform:scaleX(0);transform-origin:left;animation:underline 1s .6s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes underline{to{transform:scaleX(1)}}
+.hero p.sub{font-size:18px;color:var(--ink-soft);max-width:460px;margin-bottom:34px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{background:var(--navy);color:#fff;padding:16px 30px;font-size:16.5px;border-radius:14px;box-shadow:0 10px 26px rgba(30,53,87,.22)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.18)}
+.btn-line{border:1.5px solid var(--navy);color:var(--navy);padding:15px 28px;font-size:16px;border-radius:14px;background:transparent}
+.btn-line:hover{background:rgba(30,53,87,.05)}
+/* 메인 비주얼 */
+.hero-visual{position:relative}
+.hero-visual .main{height:500px;border-radius:26px;position:relative;z-index:1}
+.hero-visual::before{content:'';position:absolute;inset:0;border:2px solid var(--gold);border-radius:26px;transform:translate(18px,18px)}
+.hero-visual::after{content:'';position:absolute;width:170px;height:170px;right:-40px;top:-40px;border-radius:50%;background:radial-gradient(circle,rgba(201,160,92,.18),transparent 70%)}
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:22px;padding-bottom:40px;gap:26px}
+  .hero-visual{order:-1}
+  .hero-visual .main{height:250px;border-radius:18px}
+  .hero-visual::before{transform:translate(9px,9px);border-radius:18px}
+  .hero-visual::after{display:none}
+  .hero .eyebrow{margin-bottom:16px}
+  .hero h1{font-size:31px;margin-bottom:12px}
+  .hero p.sub{font-size:15.5px;margin-bottom:24px}
+  .hero-btns .btn{flex:1;justify-content:center;padding:14px 10px;font-size:15px}
+        }
+
+/* 모바일 퀵메뉴 */
+.quick{display:none}
+@media(max-width:900px){
+  .quick{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+  .quick a{display:flex;flex-direction:column;align-items:center;gap:7px;padding:15px 4px;font-size:12px;font-weight:700;color:var(--navy)}
+  .quick a+a{border-left:1px solid var(--line)}
+  .quick svg{width:22px;height:22px;color:var(--gold-hot)}
+}
+
+/* section 공통 */
+section{padding:88px 0}
+.sec-head{margin-bottom:46px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.sec-head .tag{color:var(--gold-hot);font-weight:800;font-size:13px;letter-spacing:3px;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sec-head .tag::before{content:'';width:34px;height:2px;background:var(--gold)}
+.sec-head h2{font-family:var(--serif);font-size:36px;font-weight:900;letter-spacing:-1px;line-height:1.3;color:var(--navy)}
+.sec-head p{color:var(--ink-soft);margin-top:10px;font-size:16px;max-width:520px}
+.sec-head .more{font-weight:800;color:var(--navy);font-size:15px;white-space:nowrap;border-bottom:2px solid var(--gold);padding-bottom:2px}
+@media(max-width:768px){section{padding:60px 0}.sec-head h2{font-size:26px}}
+
+/* 여성회원 */
+.members{background:var(--bg-warm)}
+.member-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.mem-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(30,40,70,.09);position:relative;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}
+.mem-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 20px 40px rgba(30,40,70,.16)}
+.mem-card:nth-child(even){margin-top:26px}
+.mem-photo{aspect-ratio:3/4;position:relative}
+.mem-photo .ph{width:100%;height:100%;border-radius:0;border:none}
+.mem-lock svg{width:24px;height:24px}
+.mem-lock{position:absolute;inset:0;backdrop-filter:blur(8px);background:linear-gradient(180deg,rgba(30,53,87,.14),rgba(18,34,58,.55));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;gap:6px;font-size:22px}
+.mem-lock span{font-size:11.5px;font-weight:700;letter-spacing:.5px}
+.mem-new{position:absolute;top:10px;left:10px;background:var(--gold);color:#fff;font-size:11px;font-weight:900;padding:4px 10px;border-radius:100px;z-index:2}
+.mem-info{padding:11px 13px;font-size:13px}
+.mem-info b{display:block;font-size:14px}
+.mem-info em{font-style:normal;color:var(--ink-soft);font-size:12.5px}
+.members-cta{text-align:center;margin-top:44px}
+.members-cta .note{font-size:14px;color:var(--ink-soft);margin-top:12px}
+@media(max-width:900px){.member-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){
+  .member-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:4px 20px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .member-grid::-webkit-scrollbar{display:none}
+  .mem-card{flex:0 0 46%;min-width:150px;scroll-snap-align:start}
+  .mem-card:nth-child(even){margin-top:0}
+}
+
+/* 3대 직영 지그재그 */
+.direct-row{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;margin-bottom:84px}
+.direct-row:last-child{margin-bottom:0}
+.direct-row.flip .d-media{order:2}
+.d-media{position:relative}
+.d-media .ph{height:330px;border-radius:20px}
+.d-media::after{content:'';position:absolute;inset:0;border:2px solid var(--gold);border-radius:20px;transform:translate(14px,14px);z-index:-1}
+.direct-row.flip .d-media::after{transform:translate(-14px,14px)}
+.d-num{font-family:var(--serif);font-size:74px;font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--gold);line-height:1;margin-bottom:6px}
+.d-body h3{font-family:var(--serif);font-size:27px;font-weight:900;color:var(--navy);margin-bottom:14px;letter-spacing:-.5px}
+.d-body p{color:var(--ink-soft);font-size:16px;margin-bottom:18px}
+.d-body .points{display:flex;flex-direction:column;gap:9px}
+.d-body .points li{list-style:none;display:flex;gap:10px;font-size:15px;font-weight:600}
+.d-body .points li::before{content:'✓';color:var(--gold-hot);font-weight:900}
+@media(max-width:900px){
+  .direct-row{grid-template-columns:1fr;gap:26px;margin-bottom:60px}
+  .direct-row.flip .d-media{order:0}
+  .d-media .ph{height:220px}
+  .d-num{font-size:54px}
+  .d-body h3{font-size:22px}
+}
+
+/* 절차 타임라인 (네이비 섹션) */
+.proc{background:
+  radial-gradient(700px 400px at 90% 0%,rgba(201,160,92,.16),transparent 60%),
+  linear-gradient(160deg,var(--navy-deep),var(--navy));color:#fff;position:relative}
+.proc .sec-head h2{color:#fff}
+.proc .sec-head p{color:#B9C6DC}
+.proc .sec-head .tag{color:var(--gold-light)}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.proc-steps::before{content:'';position:absolute;top:26px;left:8%;right:8%;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 16px)}
+.p-step{padding:0 18px;text-align:center;position:relative}
+.p-step .dot{width:52px;height:52px;border-radius:50%;background:var(--navy-mid);border:2px solid var(--gold);color:var(--gold-light);font-family:var(--serif);font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:17px;position:relative;z-index:1;transition:transform .3s,background .3s,color .3s}
+.p-step:hover .dot{transform:scale(1.15);background:var(--gold);color:var(--navy-deep)}
+.p-step h4{font-size:18.5px;margin-bottom:8px;font-weight:800}
+.p-step p{font-size:14px;color:#B9C6DC}
+.proc-cta{text-align:center;margin-top:48px}
+@media(max-width:900px){
+  .proc-steps{grid-template-columns:1fr;gap:26px}
+  .proc-steps::before{left:25px;right:auto;top:26px;bottom:26px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--gold) 0 8px,transparent 8px 16px)}
+  .p-step{display:flex;gap:18px;text-align:left;padding:0}
+  .p-step .dot{margin:0;flex-shrink:0}
+}
+
+/* 성혼 갤러리 */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.g-card{background:#fff;padding:12px 12px 18px;border-radius:8px;box-shadow:0 10px 28px rgba(30,40,70,.1);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s}
+.g-card:nth-child(3n+1){transform:rotate(-1.6deg)}
+.g-card:nth-child(3n+2){transform:rotate(1.2deg) translateY(16px)}
+.g-card:nth-child(3n){transform:rotate(-.8deg)}
+.g-card:hover{transform:rotate(0) translateY(-6px) scale(1.02);box-shadow:0 24px 50px rgba(30,40,70,.18);z-index:5;position:relative}
+.g-card .ph{height:240px;border-radius:4px}
+.g-card:nth-child(2) .ph,.g-card:nth-child(5) .ph{height:280px}
+.g-card .cap{padding:14px 6px 0}
+.g-card .cap .badge{display:inline-block;background:var(--navy);color:var(--gold-light);font-size:11.5px;font-weight:800;padding:3px 12px;border-radius:100px;margin-bottom:8px;letter-spacing:1px}
+.g-card .cap p{font-size:14.5px;color:var(--ink-soft)}
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(max-width:700px){
+  .gallery-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:4px 20px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .gallery-grid::-webkit-scrollbar{display:none}
+  .g-card{flex:0 0 76%;scroll-snap-align:start;transform:none!important}
+  .g-card .ph{height:210px!important}
+}
+
+/* 인증자료 — 네이비 트러스트 밴드 */
+.certs{background:radial-gradient(700px 400px at 10% 0%,rgba(201,160,92,.14),transparent 60%),linear-gradient(160deg,var(--navy-deep),var(--navy));color:#fff}
+.certs .wrap{display:grid;grid-template-columns:1fr .95fr;gap:64px;align-items:center}
+.certs .sec-head{margin-bottom:26px;display:block}
+.certs .sec-head h2{color:#fff}
+.certs .sec-head .tag{color:var(--gold-light)}
+.certs .sec-head p{color:#B9C6DC}
+.trust-list{list-style:none;display:flex;flex-direction:column;margin-bottom:26px}
+.trust-list li{display:flex;align-items:center;gap:16px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.trust-list li:first-child{border-top:1px solid rgba(255,255,255,.12)}
+.trust-list .ic{width:42px;height:42px;border-radius:12px;background:rgba(201,160,92,.16);border:1px solid rgba(201,160,92,.4);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.trust-list .ic svg{width:20px;height:20px;color:var(--gold-light)}
+.trust-list b{display:block;font-size:15.5px}
+.trust-list em{font-style:normal;font-size:13px;color:#9FB0C9}
+.certs .btn-line{border-color:rgba(255,255,255,.5);color:#fff}
+.certs .btn-line:hover{background:rgba(255,255,255,.08)}
+/* CSS 증서 목업 (실제 스캔본 교체 전 임시) */
+.paper-stack{position:relative;height:420px}
+.paper{position:absolute;width:250px;background:#FDFCF9;border-radius:4px;box-shadow:0 20px 50px rgba(0,0,0,.35);padding:26px 22px 20px;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.paper:hover{transform:rotate(0) translateY(-10px)!important;z-index:10}
+.paper .emblem{width:34px;height:34px;border-radius:50%;border:2px solid var(--gold);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:var(--gold-hot);font-size:15px}
+.paper .emblem svg{width:16px;height:16px}
+.paper .t{height:11px;background:var(--navy);border-radius:2px;width:70%;margin:0 auto 16px;opacity:.85}
+.paper .l{height:6px;background:#DDD9CE;border-radius:2px;margin-bottom:8px}
+.paper .l.w9{width:92%}.paper .l.w7{width:74%}.paper .l.w8{width:84%}.paper .l.w5{width:55%}
+.paper .seal{width:40px;height:40px;border:2.5px solid #C0503E;border-radius:50%;margin:16px 4px 0 auto;position:relative;opacity:.75;transform:rotate(-12deg)}
+.paper .seal::after{content:'';position:absolute;inset:5px;border:1.5px solid #C0503E;border-radius:50%}
+.paper .name{text-align:center;font-size:11.5px;font-weight:800;color:var(--navy);margin-top:12px;padding-top:10px;border-top:1px solid #ECE8DE}
+.paper1{left:0;top:34px;transform:rotate(-7deg);z-index:1}
+.paper2{left:50%;top:0;transform:translateX(-50%) rotate(1deg);z-index:2}
+.paper3{right:0;top:44px;transform:rotate(6deg);z-index:1}
+.paper-note{position:absolute;bottom:-8px;left:0;right:0;text-align:center;font-size:12px;color:#8FA0BB}
+@media(max-width:900px){
+  .certs .wrap{grid-template-columns:1fr;gap:48px}
+  .paper-stack{height:360px;max-width:440px;margin:0 auto;width:100%}
+  .paper{width:200px;padding:20px 17px 15px}
+  .paper1{left:-4px}.paper3{right:-4px}
+}
+
+/* 인삿말 */
+.greet .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.greet-media{position:relative}
+.greet-media .main-ph{height:340px;border-radius:20px}
+.greet-media .card-ph{position:absolute;bottom:-24px;right:-18px;width:200px;height:110px;background:#fff;padding:8px;border-radius:12px;box-shadow:0 14px 34px rgba(30,40,70,.16);transform:rotate(3deg)}
+.greet-media .card-ph .ph{width:100%;height:100%;border-radius:8px;font-size:11px}
+.greet h2{font-family:var(--serif);font-size:30px;font-weight:900;margin-bottom:18px;line-height:1.42;letter-spacing:-.5px;color:var(--navy)}
+.greet p{color:var(--ink-soft);margin-bottom:24px}
+@media(max-width:900px){.greet .wrap{grid-template-columns:1fr;gap:40px}.greet-media .main-ph{height:230px}}
+
+/* 오시는길 */
+.map .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.map .ph{height:310px;border-radius:20px}
+.map dl{display:grid;grid-template-columns:92px 1fr;row-gap:15px;font-size:15.5px}
+.map dt{font-weight:800;color:var(--navy)}
+@media(max-width:900px){.map .wrap{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--navy-deep);color:#93A3BC;font-size:13.5px;padding:48px 0 116px}
+footer .f-logo{font-family:var(--serif);color:var(--gold-light);font-size:20px;font-weight:900;margin-bottom:16px}
+footer p{margin-bottom:4px}
+footer .links{margin-bottom:20px;display:flex;gap:20px;flex-wrap:wrap}
+footer .links a{color:#C4D0E2;font-weight:600}
+@media(min-width:769px){footer{padding-bottom:48px}}
+
+/* mobile sticky CTA */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:200;display:none;grid-template-columns:1fr 1fr 1.3fr;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.1)}
+.sticky-cta svg{width:17px;height:17px}
+.sticky-cta a{display:flex;align-items:center;justify-content:center;gap:6px;padding:15px 0;font-weight:800;font-size:14.5px}
+.sticky-cta .tel{color:var(--navy)}
+.sticky-cta .kakao{background:#FEE500;color:#3A1D1D}
+.sticky-cta .join{background:var(--navy);color:#fff}
+@media(max-width:768px){.sticky-cta{display:grid}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a class="logo" href="index.html">라오스결혼<span>LAOS</span></a>
+    <nav class="gnb">
+      <a href="greeting.html">인삿말</a>
+      <a href="license.html">허가자료</a>
+      <a href="process.html">절차 및 비용</a>
+      <a href="video-meeting.html">화상맞선</a>
+      <a href="members.html">여성회원</a>
+      <a href="faq.html">고객센터</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="btn btn-navy" href="signup.html">회원가입</a>
+      <button class="hamburger" onclick="document.querySelector('.m-nav').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div class="m-nav">
+    <a href="greeting.html">인삿말</a>
+    <a href="license.html">허가자료</a>
+    <a href="process.html">절차 및 비용</a>
+    <a href="video-meeting.html">화상맞선의 장점</a>
+    <a href="members.html">여성회원</a>
+    <a href="faq.html">고객센터 (FAQ)</a>
+    <a href="location.html">찾아오시는길</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><span class="live"></span> 지금 화상맞선 상담 가능</span>
+      <h1>라오스에서 만나는<br><span class="hl">단 하나의 진심</span></h1>
+      <p class="sub">라오스에 지사를 둔 유일한 결혼정보회사. 맞선부터 어학 교육, 비자 수속, 입국까지 전 과정 직영으로 책임집니다.</p>
+      <div class="hero-btns">
+        <a class="btn btn-gold" href="signup.html">여성회원 프로필 보기</a>
+        <a class="btn btn-line" href="video-meeting.html">화상맞선 알아보기</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ph main">[메인 이미지: 전통혼례식 or 성혼 커플 대표컷]<br>※ 클라이언트 제공</div>
+    </div>
+  </div>
+</div>
+<nav class="quick">
+  <a href="members.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>여성회원</a>
+  <a href="process.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>절차·비용</a>
+  <a href="video-meeting.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 9-6 3 6 3z"/></svg>화상맞선</a>
+  <a href="location.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>오시는길</a>
+</nav>
+
+<!-- 여성회원 -->
+<section class="members">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="tag">WAITING MEMBERS</div>
+        <h2>지금, 한국 남성을<br>기다리는 여성회원</h2>
+      </div>
+      <p>프로필과 사진은 개인정보 보호를 위해 <b>회원가입 후에만</b> 열람하실 수 있습니다.</p>
+    </div>
+    <div class="member-grid">
+      <div class="mem-card rv"><div class="mem-photo"><span class="mem-new">NEW</span><div class="ph">[여성회원 사진]</div><div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div></div><div class="mem-info"><b>P○○ 님 · 24세</b><em>비엔티안 · 한국어 학습 중</em></div></div>
+      <div class="mem-card rv rv-d1"><div class="mem-photo"><div class="ph">[여성회원 사진]</div><div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div></div><div class="mem-info"><b>S○○ 님 · 26세</b><em>루앙프라방 · 회사원</em></div></div>
+      <div class="mem-card rv rv-d2"><div class="mem-photo"><span class="mem-new">NEW</span><div class="ph">[여성회원 사진]</div><div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div></div><div class="mem-info"><b>K○○ 님 · 23세</b><em>비엔티안 · 대학 재학</em></div></div>
+      <div class="mem-card rv"><div class="mem-photo"><div class="ph">[여성회원 사진]</div><div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div></div><div class="mem-info"><b>V○○ 님 · 28세</b><em>팍세 · 자영업</em></div></div>
+      <div class="mem-card rv rv-d1"><div class="mem-photo"><div class="ph">[여성회원 사진]</div><div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div></div><div class="mem-info"><b>N○○ 님 · 25세</b><em>비엔티안 · 간호사</em></div></div>
+      <div class="mem-card rv rv-d2"><div class="mem-photo"><div class="ph">[여성회원 사진]</div><div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div></div><div class="mem-info"><b>T○○ 님 · 27세</b><em>사반나켓 · 교사</em></div></div>
+    </div>
+    <div class="members-cta rv">
+      <a class="btn btn-navy" style="padding:16px 36px;font-size:16.5px" href="signup.html">무료 회원가입하고 프로필 전체 보기</a>
+      <p class="note">가입은 무료이며, 이메일 접수 후 담당자가 개별 안내드립니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3대 직영 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="tag">WHY US</div>
+        <h2>라오스 유일,<br>전 과정 직영 시스템</h2>
+      </div>
+      <p>중간 에이전트 없이 회사가 처음부터 끝까지 직접 운영합니다.</p>
+    </div>
+
+    <div class="direct-row rv">
+      <div class="d-media"><div class="ph">[이미지: 라오스 지사 사무실]<br>※ 클라이언트 제공 예정</div></div>
+      <div class="d-body">
+        <div class="d-num">01</div>
+        <h3>라오스 유일의 현지 지사</h3>
+        <p>라오스에 지사를 두고 운영하는 유일한 결혼정보회사입니다. 여성회원 발굴부터 신원 검증까지 현지에서 직접 진행합니다.</p>
+        <ul class="points">
+          <li>현지 마담·에이전트를 거치지 않는 직접 발굴</li>
+          <li>현지 지사에서 신원 검증 후 등록</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="direct-row flip rv">
+      <div class="d-media"><div class="ph">[이미지: 어학당 · 기숙사]<br>※ 클라이언트 제공 예정</div></div>
+      <div class="d-body">
+        <div class="d-num">02</div>
+        <h3>어학당 · 기숙사 직영 운영</h3>
+        <p>성혼 후 신부님은 직영 기숙사에서 생활하며 한국어와 한국 문화를 체계적으로 배웁니다.</p>
+        <ul class="points">
+          <li>직영 기숙사 생활 + 어학당 통학</li>
+          <li>한국 문화 · 생활 예절 교육 병행</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="direct-row rv">
+      <div class="d-media"><div class="ph">[이미지: 비자 수속 · 입국 지원]<br>※ 클라이언트 제공 예정</div></div>
+      <div class="d-body">
+        <div class="d-num">03</div>
+        <h3>비자대행까지 직영으로</h3>
+        <p>신부님의 한국 입국에 필요한 비자 수속을 외부 대행 없이 회사가 직접 처리합니다.</p>
+        <ul class="points">
+          <li>비자 서류 준비부터 발급까지 원스톱</li>
+          <li>진행 상황 실시간 공유</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 절차 -->
+<section class="proc">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="tag">PROCESS</div>
+        <h2>결혼까지,<br>이렇게 진행됩니다</h2>
+      </div>
+      <p>상담부터 입국까지 전담 매니저가 함께합니다.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="p-step rv"><div class="dot">1</div><div><h4>상담 · 회원가입</h4><p>전화 또는 이메일 접수 후 1:1 상담을 진행합니다.</p></div></div>
+      <div class="p-step rv rv-d1"><div class="dot">2</div><div><h4>1:1 화상맞선</h4><p>한국에서 편하게, 원하는 이상형과 화상으로 만납니다.</p></div></div>
+      <div class="p-step rv rv-d2"><div class="dot">3</div><div><h4>현지 만남 · 결혼식</h4><p>라오스 방문, 상견례와 전통 혼례를 진행합니다.</p></div></div>
+      <div class="p-step rv rv-d3"><div class="dot">4</div><div><h4>교육 · 비자 · 입국</h4><p>한국어 교육 이수 후 비자 수속을 거쳐 입국합니다.</p></div></div>
+    </div>
+    <div class="proc-cta rv"><a class="btn btn-gold" href="process.html">절차 · 일정표 · 준비서류 자세히 보기</a></div>
+  </div>
+</section>
+
+<!-- 성혼 갤러리 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="tag">BEST STORY</div>
+        <h2>축 성혼, 행복한 부부들</h2>
+      </div>
+      <a class="more" href="#">성혼 스토리 더 보기 →</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-card rv"><div class="ph">[이미지: 전통혼례식 ①]<br>※ 클라이언트 제공</div><div class="cap"><span class="badge">축 성혼</span><p>화상맞선으로 시작해 라오스 전통 혼례까지 — 김○○ · P○○ 부부</p></div></div>
+      <div class="g-card rv rv-d1"><div class="ph">[이미지: 전통혼례식 ②]<br>※ 클라이언트 제공</div><div class="cap"><span class="badge">축 성혼</span><p>어학 교육 마치고 한국에서 새 출발 — 이○○ · S○○ 부부</p></div></div>
+      <div class="g-card rv rv-d2"><div class="ph">[이미지: 전통혼례식 ③]<br>※ 클라이언트 제공</div><div class="cap"><span class="badge">축 성혼</span><p>비자 발급까지 3개월, 함께한 여정 — 박○○ · N○○ 부부</p></div></div>
+      <div class="g-card rv"><div class="ph">[이미지: 커플 사진 ④]<br>※ 클라이언트 제공</div><div class="cap"><span class="badge">축 성혼</span><p>상견례부터 입국까지 전담 매니저와 함께 — 최○○ · K○○ 부부</p></div></div>
+      <div class="g-card rv rv-d1"><div class="ph">[이미지: 커플 사진 ⑤]<br>※ 클라이언트 제공</div><div class="cap"><span class="badge">축 성혼</span><p>진심이 만난 자리 — 정○○ · V○○ 부부</p></div></div>
+      <div class="g-card rv rv-d2"><div class="ph">[이미지: 커플 사진 ⑥]<br>※ 클라이언트 제공</div><div class="cap"><span class="badge">축 성혼</span><p>라오스에서 시작된 인연 — 강○○ · T○○ 부부</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 인증자료 -->
+<section class="certs">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-head">
+        <div class="tag">LICENSE</div>
+        <h2>등록번호로 확인하세요</h2>
+        <p>국제결혼중개업 정식 등록 업체입니다. 모든 허가 · 인증 자료의 원본을 공개합니다.</p>
+      </div>
+      <ul class="trust-list">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></span><div><b>국제결혼중개업 등록증</b><em>등록번호 [○○-○○-국제-00-0000] — 클라이언트 확인</em></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span><div><b>국제결혼중개업 보증서</b><em>보증보험증권 가입 — 증권번호 [클라이언트 확인]</em></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg></span><div><b>국제결혼중개업 교육 수료증</b><em>법정 의무교육 이수 완료</em></div></li>
+      </ul>
+      <a class="btn btn-line" href="license.html">허가자료 원본 전체 보기</a>
+    </div>
+    <div class="paper-stack rv rv-d1">
+      <!-- CSS 목업: 클로드코드에서 실제 스캔 이미지로 교체 -->
+      <div class="paper paper1"><div class="emblem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.6L20 10l-5.8 1.4L12 17l-2.2-5.6L4 10l5.8-1.4z"/></svg></div><div class="t"></div><div class="l w9"></div><div class="l w8"></div><div class="l w7"></div><div class="l w9"></div><div class="l w5"></div><div class="seal"></div><div class="name">국제결혼중개업 등록증</div></div>
+      <div class="paper paper2"><div class="emblem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.6L20 10l-5.8 1.4L12 17l-2.2-5.6L4 10l5.8-1.4z"/></svg></div><div class="t"></div><div class="l w8"></div><div class="l w9"></div><div class="l w7"></div><div class="l w8"></div><div class="l w5"></div><div class="seal"></div><div class="name">보증보험증권</div></div>
+      <div class="paper paper3"><div class="emblem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.6L20 10l-5.8 1.4L12 17l-2.2-5.6L4 10l5.8-1.4z"/></svg></div><div class="t"></div><div class="l w9"></div><div class="l w7"></div><div class="l w8"></div><div class="l w9"></div><div class="l w5"></div><div class="seal"></div><div class="name">교육 수료증</div></div>
+      <div class="paper-note">※ 실제 등록증 · 증권 · 수료증 스캔본으로 교체 예정</div>
+    </div>
+  </div>
+</section>
+
+<!-- 인삿말 -->
+<section class="greet">
+  <div class="wrap">
+    <div class="greet-media rv">
+      <div class="ph main-ph">[이미지: 대표 프로필 사진]<br>※ 클라이언트 제공</div>
+      <div class="card-ph"><div class="ph">[이미지: 명함]</div></div>
+    </div>
+    <div class="rv rv-d1">
+      <div class="sec-head" style="margin-bottom:0;display:block">
+        <div class="tag">GREETING</div>
+        <h2>“평생의 인연,<br>처음부터 끝까지 직접 책임지겠습니다”</h2>
+      </div>
+      <p style="color:var(--ink-soft);margin:18px 0 24px">[인삿말 본문 — 클라이언트가 직접 작성한 내용이 이 자리에 들어갑니다. 회사 소개, 운영 방침, 약속 등 3~4문단 분량 권장]</p>
+      <a class="btn btn-navy" href="greeting.html">인삿말 전체 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- 오시는길 -->
+<section class="map" style="padding-top:0">
+  <div class="wrap">
+    <div class="ph rv">[카카오맵 / 네이버지도 임베드]<br>클로드코드: 지도 API 삽입</div>
+    <div class="rv rv-d1">
+      <div class="sec-head" style="margin-bottom:24px;display:block">
+        <div class="tag">LOCATION</div>
+        <h2>찾아오시는 길</h2>
+      </div>
+      <dl>
+        <dt>주소</dt><dd>전남광주통합특별시 북구 하서로 421 양산빌딩 5층</dd>
+        <dt>상담전화</dt><dd>0XX-XXX-XXXX</dd>
+        <dt>휴대전화</dt><dd>010-0000-0000</dd>
+        <dt>상담시간</dt><dd>평일 09:00 – 18:00 (주말·공휴일 사전예약)</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-logo">라오스결혼</div>
+    <div class="links">
+      <a href="greeting.html">인삿말</a><a href="license.html">허가자료</a><a href="process.html">절차 및 비용</a><a href="faq.html">고객센터</a><a href="#">개인정보처리방침</a>
+    </div>
+    <p>상호: [상호명] · 대표: [대표자명] · 사업자등록번호: 000-00-00000</p>
+    <p>국제결혼중개업 등록번호: [등록번호] · 주소: 전남광주통합특별시 북구 하서로 421 양산빌딩 5층</p>
+    <p>전화: 0XX-XXX-XXXX · 이메일: contact@example.com</p>
+    <p style="margin-top:12px;color:#6B7C97">COPYRIGHT © 2026 ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="tel" href="tel:0000000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"/></svg> 전화상담</a>
+  <a class="kakao" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 카톡상담</a>
+  <a class="join" href="signup.html">회원가입</a>
+</div>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const co=new IntersectionObserver(es=>{es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,to=+el.dataset.to,dur=1400,t0=performance.now();
+  const tick=t=>{const p=Math.min((t-t0)/dur,1),v=Math.floor(to*(1-Math.pow(1-p,3)));
+    el.textContent=v.toLocaleString();if(p<1)requestAnimationFrame(tick)};
+  requestAnimationFrame(tick);co.unobserve(el);
+})},{threshold:.5});
+document.querySelectorAll('.count').forEach(el=>co.observe(el));
+</script>
+</body>
+</html>

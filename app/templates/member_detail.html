@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}{{ m.name_masked }} 님 프로필 — {{ site.brand_ko }}{% endblock %}
+{% block meta_desc %}여성회원 상세 프로필 (승인 회원 전용){% endblock %}
+{% block body_class %}pg-members{% endblock %}
+
+{% block styles %}
+<style>
+.md-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:start}
+.md-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.md-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;cursor:zoom-in}
+.md-photos img:first-child{grid-column:1/-1;aspect-ratio:4/4.6}
+.md-info{position:sticky;top:96px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}
+.md-info h1{font-family:var(--serif);font-size:26px;font-weight:900;color:var(--brand);margin-bottom:4px}
+.md-info .sub{color:var(--ink-soft);font-size:14.5px;margin-bottom:18px}
+.md-info dl{display:grid;grid-template-columns:84px 1fr;row-gap:12px;font-size:15px;margin-bottom:22px}
+.md-info dt{font-weight:800;color:var(--brand)}
+.md-note{background:var(--bg-warm);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--ink-soft);margin-bottom:18px}
+@media(max-width:800px){.md-hero{grid-template-columns:1fr}.md-info{position:static}}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-hero">
+  <div class="tag">PROFILE</div>
+  <h1>{{ m.name_masked }} 님</h1>
+  <p>{{ m.region }} · {{ m.age }}세</p>
+</div>
+<section>
+  <div class="wrap wrap-n">
+    <p style="margin-bottom:18px"><a href="{{ url_for('pages.members') }}" style="color:var(--ink-soft);font-weight:700">← 여성회원 목록</a></p>
+    <div class="md-hero">
+      <div class="md-photos">
+        {% for p in m.photos %}
+        <img src="{{ url_for('static', filename=p.path) }}" alt="{{ m.name_masked }} 님 사진 {{ loop.index }}" data-lightbox="{{ url_for('static', filename=p.path) }}" {% if not loop.first %}loading="lazy"{% endif %}>
+        {% else %}
+        <div class="ph" style="height:420px;grid-column:1/-1">[사진 준비 중]</div>
+        {% endfor %}
+      </div>
+      <div class="md-info">
+        <h1>{{ m.name_masked }} 님</h1>
+        <div class="sub">{{ m.job_note or '소개는 상담 시 안내드립니다' }}</div>
+        <dl>
+          <dt>나이</dt><dd>{{ m.age }}세</dd>
+          <dt>지역</dt><dd>{{ m.region }} (라오스)</dd>
+        </dl>
+        {% if m.intro %}
+        <div style="font-size:15px;color:var(--ink);white-space:pre-line;border-top:1px solid var(--line);padding-top:16px;margin-bottom:20px">{{ m.intro }}</div>
+        {% endif %}
+        <div class="md-note">상세 신상정보(학력·가족관계·건강 등)는 「결혼중개업의 관리에 관한 법률」에 따라 맞선 진행 시 서면으로 제공됩니다.</div>
+        <a class="btn btn-accent" style="width:100%" href="{{ url_for('pages.video_meeting') }}">이 분과 화상맞선 신청하기</a>
+        <p style="text-align:center;margin-top:10px;font-size:13.5px;color:var(--ink-soft)">전화 문의: {{ site.tel_kr }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

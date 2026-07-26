@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회원가입 — 라오스결혼</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --plum:#1E3557;--plum-dark:#12223A;--gold:#C9A05C;--gold-light:#E8D5B0;
+  --ink:#2B2226;--ink-soft:#6B5D63;--bg:#FDFBF9;--bg-warm:#F7F1EA;
+  --serif:'Noto Serif KR',serif;--sans:'Pretendard',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);color:var(--ink);background:#F8F8F7;line-height:1.6;font-size:16px}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+
+header{background:#fff;border-bottom:1px solid #EEE5DB;position:sticky;top:0;z-index:100}
+.hd{max-width:1120px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-weight:900;font-size:22px;color:var(--plum)}
+.hd a.back{font-weight:700;color:var(--ink-soft);font-size:14.5px}
+
+.page-head{text-align:center;padding:44px 0 8px}
+.page-head h1{font-family:var(--serif);font-size:30px;font-weight:900;color:var(--plum)}
+.page-head p{color:var(--ink-soft);margin-top:10px;font-size:15px}
+.page-head .mail-badge svg{width:16px;height:16px;flex-shrink:0}
+.page-head .mail-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--gold);color:var(--plum);font-weight:700;font-size:14px;padding:8px 18px;border-radius:100px;margin-top:16px}
+
+form{background:#fff;border-radius:18px;padding:36px 32px;margin:28px auto 60px;box-shadow:0 10px 34px rgba(60,30,40,.09)}
+@media(max-width:600px){form{padding:26px 18px;border-radius:14px}}
+
+fieldset{border:none;margin-bottom:34px}
+legend{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--plum);padding-bottom:6px;border-bottom:2px solid var(--gold);width:100%;margin-bottom:20px}
+.field{margin-bottom:18px}
+label{display:block;font-weight:700;font-size:14.5px;margin-bottom:7px}
+label .req{color:#C33D55}
+label .hint{font-weight:500;color:var(--ink-soft);font-size:13px;margin-left:6px}
+input[type=text],input[type=password],input[type=tel],input[type=date],input[type=email],select{
+  width:100%;padding:13px 14px;border:1.5px solid #E3D6C8;border-radius:10px;font-size:16px;font-family:var(--sans);background:#FDFBF8;transition:.15s
+}
+input:focus,select:focus{outline:none;border-color:var(--plum);background:#fff}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.row2{grid-template-columns:1fr}}
+
+/* 체크박스 그룹 */
+.check-group{display:flex;gap:12px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-block;padding:11px 20px;border:1.5px solid #E3D6C8;border-radius:100px;font-weight:600;font-size:15px;background:#FDFBF8;cursor:pointer;transition:.15s}
+.chip input:checked + span{background:var(--plum);border-color:var(--plum);color:#fff}
+
+/* 개인정보 동의 */
+.privacy-box{border:1.5px solid #E3D6C8;border-radius:12px;overflow:hidden;margin-bottom:14px}
+.privacy-box summary{cursor:pointer;padding:14px 16px;font-weight:700;font-size:14.5px;background:#FBF7F1;list-style:none;display:flex;justify-content:space-between}
+.privacy-box summary::after{content:'▾';color:var(--gold)}
+.privacy-body{padding:16px;font-size:13.5px;color:var(--ink-soft);max-height:220px;overflow-y:auto;border-top:1px solid #EFE5D8}
+.privacy-body h4{font-size:13.5px;color:var(--ink);margin:10px 0 4px}
+.privacy-body table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.privacy-body th,.privacy-body td{border:1px solid #E8DCCB;padding:7px 9px;text-align:left;vertical-align:top}
+.privacy-body th{background:#FBF7F1;font-weight:700;white-space:nowrap}
+.agree-line{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.agree-line input{width:20px;height:20px;accent-color:var(--plum)}
+
+.submit-btn{width:100%;background:var(--plum);color:#fff;border:none;border-radius:12px;padding:17px;font-size:17px;font-weight:800;cursor:pointer;font-family:var(--sans);margin-top:10px;transition:.18s}
+.submit-btn:hover{background:var(--plum-dark)}
+.submit-note{text-align:center;font-size:13.5px;color:var(--ink-soft);margin-top:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <a class="logo" href="index.html">라오스결혼</a>
+    <a class="back" href="index.html">← 메인으로</a>
+  </div>
+</header>
+
+<div class="page-head wrap">
+  <h1>회원가입</h1>
+  <p>가입 신청 후 여성회원 프로필을 열람하실 수 있습니다.</p>
+  <div class="mail-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> 접수된 신청서는 담당자 이메일로 전달되며, 확인 후 개별 연락드립니다</div>
+</div>
+
+<!--
+  클로드코드 구현 노트:
+  - action 없음. submit 시 서버(Flask) → SMTP로 담당자 이메일 발송 (스펙: "회원가입 - 이메일로 받기")
+  - 비밀번호는 이메일 원문에 포함하지 말 것 (해시 저장 or 별도 처리)
+  - 스팸 방지: honeypot 필드 + rate limit 권장
+-->
+<form class="wrap" onsubmit="alert('프로토타입: 실제 구현 시 이메일로 접수됩니다'); return false;">
+
+  <fieldset>
+    <legend>계정 정보</legend>
+    <div class="field">
+      <label>아이디 <span class="req">*</span></label>
+      <input type="text" placeholder="영문·숫자 4~16자" required>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>비밀번호 <span class="req">*</span></label>
+        <input type="password" placeholder="8자 이상" required>
+      </div>
+      <div class="field">
+        <label>비밀번호 확인 <span class="req">*</span></label>
+        <input type="password" required>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>기본 정보</legend>
+    <div class="row2">
+      <div class="field">
+        <label>이름 <span class="req">*</span></label>
+        <input type="text" required>
+      </div>
+      <div class="field">
+        <label>생년월일 <span class="req">*</span></label>
+        <input type="date" required>
+      </div>
+    </div>
+    <div class="field">
+      <label>연락처 <span class="req">*</span></label>
+      <input type="tel" placeholder="010-0000-0000" required>
+    </div>
+    <div class="field">
+      <label>주소 <span class="req">*</span></label>
+      <input type="text" placeholder="시/군/구까지 입력하셔도 됩니다" required>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>맞선 참고 정보</legend>
+    <div class="field">
+      <label>최종학력 <span class="req">*</span></label>
+      <select required>
+        <option value="">선택해주세요</option>
+        <option>고등학교 졸업</option>
+        <option>전문대 졸업</option>
+        <option>대학교 졸업</option>
+        <option>대학원 이상</option>
+        <option>기타</option>
+      </select>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>직업 <span class="req">*</span></label>
+        <input type="text" placeholder="예: 자영업, 회사원, 공무원" required>
+      </div>
+      <div class="field">
+        <label>연봉 <span class="hint">연말정산 또는 소득세 신고 기준</span> <span class="req">*</span></label>
+        <select required>
+          <option value="">선택해주세요</option>
+          <option>2,000만원 미만</option>
+          <option>2,000 ~ 3,000만원</option>
+          <option>3,000 ~ 4,000만원</option>
+          <option>4,000 ~ 5,000만원</option>
+          <option>5,000 ~ 7,000만원</option>
+          <option>7,000만원 이상</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>해당사항 <span class="hint">해당하는 항목을 모두 선택해주세요</span></label>
+      <div class="check-group">
+        <label class="chip"><input type="checkbox" name="status" value="기혼"><span>기혼 (혼인 중)</span></label>
+        <label class="chip"><input type="checkbox" name="status" value="재혼"><span>재혼 희망</span></label>
+        <label class="chip"><input type="checkbox" name="status" value="자녀"><span>자녀 있음</span></label>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>개인정보 수집 · 이용 동의</legend>
+    <details class="privacy-box">
+      <summary>개인정보 수집 및 이용에 관한 안내 (필수)</summary>
+      <div class="privacy-body">
+        <p>[상호명]은(는) 「개인정보 보호법」 제15조에 따라 아래와 같이 개인정보를 수집·이용합니다.</p>
+        <table>
+          <tr><th>수집 항목</th><td>아이디, 비밀번호, 이름, 생년월일, 연락처, 주소, 최종학력, 직업, 연봉, 혼인·자녀 관련 사항</td></tr>
+          <tr><th>수집 목적</th><td>회원 가입 및 본인 확인, 국제결혼 중개 상담 및 맞선 주선, 서비스 관련 안내·연락</td></tr>
+          <tr><th>보유 기간</th><td>회원 탈퇴 시 또는 수집 목적 달성 시까지 (관계 법령에 따라 보존이 필요한 경우 해당 기간)</td></tr>
+        </table>
+        <h4>동의 거부 권리 및 불이익</h4>
+        <p>귀하는 개인정보 수집·이용에 동의하지 않을 권리가 있습니다. 다만, 필수 항목에 대한 동의를 거부할 경우 회원가입 및 맞선 서비스 이용이 제한됩니다.</p>
+        <h4>민감정보 안내</h4>
+        <p>혼인 여부, 자녀 유무 등은 국제결혼 중개 서비스 제공을 위한 필수 확인 사항으로, 「결혼중개업의 관리에 관한 법률」에 따른 신상정보 확인 목적으로만 이용됩니다.</p>
+      </div>
+    </details>
+    <label class="agree-line">
+      <input type="checkbox" required>
+      개인정보 수집 및 이용에 동의합니다 <span class="req">*</span>
+    </label>
+  </fieldset>
+
+  <button class="submit-btn" type="submit">가입 신청하기</button>
+  <p class="submit-note">신청서 접수 후 영업일 기준 1일 이내에 담당자가 연락드립니다.</p>
+</form>
+
+</body>
+</html>

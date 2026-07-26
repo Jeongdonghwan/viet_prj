@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+{% block title %}가입 신청{% endblock %}
+{% block content %}
+<h1>가입 신청 관리</h1>
+<div class="tabs">
+  {% for key, label in [('all','전체'), ('pending','승인 대기'), ('approved','승인'), ('blocked','차단')] %}
+  <a href="{{ url_for('admin.users', status=key) }}" {% if status == key %}class="on"{% endif %}>{{ label }}</a>
+  {% endfor %}
+</div>
+<table class="list">
+  <tr><th>신청일</th><th>아이디</th><th>이름</th><th>생년월일</th><th>연락처</th><th>주소</th><th>학력</th><th>직업</th><th>연봉</th><th>해당사항</th><th>상태</th><th>처리</th></tr>
+  {% for u in users %}
+  <tr>
+    <td class="muted">{{ u.created_at.strftime('%m/%d %H:%M') }}</td>
+    <td><b>{{ u.login_id }}</b></td>
+    <td>{{ u.name }}</td>
+    <td>{{ u.birth.strftime('%Y-%m-%d') }}</td>
+    <td>{{ u.phone }}</td>
+    <td>{{ u.address }}</td>
+    <td>{{ u.education }}</td>
+    <td>{{ u.job }}</td>
+    <td>{{ u.income_range }}</td>
+    <td class="muted">{{ ['미혼' if u.is_single, '기혼' if u.is_married, '재혼' if u.is_remarriage, '자녀' if u.has_children] | select | join(' · ') or '—' }}</td>
+    <td><span class="badge {{ u.status }}">{{ {'pending':'대기','approved':'승인','blocked':'차단'}[u.status] }}</span></td>
+    <td style="white-space:nowrap">
+      {% if u.status != 'approved' %}
+      <form class="inline" method="post" action="{{ url_for('admin.user_status', user_id=u.id) }}"><input type="hidden" name="status" value="approved"><button class="btn btn-sm btn-green">승인</button></form>
+      {% endif %}
+      {% if u.status != 'blocked' %}
+      <form class="inline" method="post" action="{{ url_for('admin.user_status', user_id=u.id) }}"><input type="hidden" name="status" value="blocked"><button class="btn btn-sm btn-red">차단</button></form>
+      {% endif %}
+      {% if u.status != 'pending' %}
+      <form class="inline" method="post" action="{{ url_for('admin.user_status', user_id=u.id) }}"><input type="hidden" name="status" value="pending"><button class="btn btn-sm btn-line">대기로</button></form>
+      {% endif %}
+    </td>
+  </tr>
+  {% else %}
+  <tr><td colspan="12" class="muted" style="text-align:center;padding:24px">해당 상태의 신청이 없습니다.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% block title %}{{ site.brand_ko }} — 라오스 유일의 직영 국제결혼정보회사{% endblock %}
+{% block meta_desc %}라오스 정부 정식 허가업체 {{ site.brand_en }}. 현지 지사·한국어학당·기숙사·비자대행 직영. 화상맞선부터 신부 입국까지 전 과정을 직접 책임집니다.{% endblock %}
+{% block body_class %}pg-home{% endblock %}
+
+{% block content %}
+<!-- HERO — 풀스크린 시네마틱 -->
+<div class="hero">
+  {# 좌측 배경: 동일 사진의 블러 확장 — 화면 전체가 한 컷처럼 보이게 #}
+  <img class="hero-blur" src="{{ url_for('static', filename='img/wedding-02.jpg') }}" alt="" aria-hidden="true">
+  <img class="hero-bg" src="{{ url_for('static', filename='img/wedding-02.jpg') }}" alt="글로벌라오 성혼 커플 웨딩 촬영">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap hero-content">
+    <h1>라오스에서 만나는<br><span class="hl">단 하나의 진심</span></h1>
+    <p class="sub">라오스 정부 정식 허가를 받고 현지 지사를 직접 운영하는 결혼정보회사. 맞선부터 한국어 교육, 비자 수속, 입국까지 전 과정 직영으로 책임집니다.</p>
+    <div class="hero-btns">
+      <a class="btn btn-accent" href="{{ url_for('auth.signup_form') }}">여성회원 프로필 보기</a>
+      <a class="btn btn-ghost" href="{{ url_for('pages.video_meeting') }}">화상맞선 알아보기</a>
+    </div>
+    <ul class="hero-trust">
+      <li>라오스 정부 정식 허가</li>
+      <li>지사 · 어학당 · 기숙사 직영</li>
+      <li>비자수속 직영</li>
+    </ul>
+  </div>
+</div>
+<nav class="quick">
+  <a href="{{ url_for('pages.members') }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>여성회원</a>
+  <a href="{{ url_for('pages.process') }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>절차·비용</a>
+  <a href="{{ url_for('pages.video_meeting') }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 9-6 3 6 3z"/></svg>화상맞선</a>
+  <a href="{{ url_for('pages.location') }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>오시는길</a>
+</nav>
+
+<!-- 성혼 갤러리 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="tag">BEST STORY</div>
+        <h2>축 성혼, 행복한 부부들</h2>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      {% set gallery = [
+        ('wedding-04.jpg', '라오스 전통 의상을 입고 — 혼례 기념 촬영'),
+        ('wedding-02.jpg', '화상맞선으로 시작된 인연, 웨딩 촬영까지'),
+        ('wedding-09.jpg', '결혼을 약속하고 함께 선 두 사람'),
+        ('wedding-07.jpg', '양가 가족이 함께한 기념 촬영'),
+        ('wedding-03.jpg', '전통 혼례식 — 축복의 실을 묶는 바씨 의식'),
+        ('wedding-10.jpg', '가족과 하객의 축복 속에 올린 전통 혼례'),
+      ] %}
+      {% for img, cap in gallery %}
+      <div class="g-card rv{% if loop.index0 % 3 == 1 %} rv-d1{% elif loop.index0 % 3 == 2 %} rv-d2{% endif %}">
+        <div class="visual"><img class="photo" src="{{ url_for('static', filename='img/' + img) }}" alt="{{ cap }}" loading="lazy"></div>
+        <div class="cap"><span class="badge">축 성혼</span><p>{{ cap }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 여성회원 미리보기 -->
+<section class="members-sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="tag">WAITING MEMBERS</div>
+        <h2>지금, 한국 남성을<br>기다리는 여성회원</h2>
+      </div>
+      <p>프로필과 사진은 개인정보 보호를 위해 <b>회원가입 후에만</b> 열람하실 수 있습니다.</p>
+    </div>
+    <div class="member-grid">
+      {% if preview_members %}
+      {% for m in preview_members %}
+      {% set main = (m.photos | selectattr('is_main') | first) or (m.photos | first) %}
+      <div class="mem-card rv{% if loop.index0 % 3 == 1 %} rv-d1{% elif loop.index0 % 3 == 2 %} rv-d2{% endif %}">
+        <div class="mem-photo">
+          {% if loop.index <= 2 %}<span class="mem-new">NEW</span>{% endif %}
+          {% if main %}<img class="photo" src="{{ url_for('static', filename=main.path) }}" alt="여성회원 프로필 (잠금)" loading="lazy">
+          {% else %}<div class="ph">[여성회원 사진]</div>{% endif %}
+          <div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div>
+        </div>
+        <div class="mem-info"><b>{{ m.name_masked }} 님 · {{ m.age }}세</b><em>{{ m.region }}{% if m.job_note %} · {{ m.job_note }}{% endif %}</em></div>
+      </div>
+      {% endfor %}
+      {% else %}
+      {# 등록된 여성회원이 없을 때 더미 #}
+      {% set preview = [
+        ('P○○ 님 · 24세', '비엔티안 · 한국어 학습 중', true),
+        ('S○○ 님 · 26세', '루앙프라방 · 회사원', false),
+        ('K○○ 님 · 23세', '비엔티안 · 대학 재학', true),
+        ('V○○ 님 · 28세', '팍세 · 자영업', false),
+        ('N○○ 님 · 25세', '비엔티안 · 간호사', false),
+        ('T○○ 님 · 27세', '사반나켓 · 교사', false),
+      ] %}
+      {% for name, note, is_new in preview %}
+      <div class="mem-card rv{% if loop.index0 % 3 == 1 %} rv-d1{% elif loop.index0 % 3 == 2 %} rv-d2{% endif %}">
+        <div class="mem-photo">
+          {% if is_new %}<span class="mem-new">NEW</span>{% endif %}
+          <div class="ph">[여성회원 사진]</div>
+          <div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div>
+        </div>
+        <div class="mem-info"><b>{{ name }}</b><em>{{ note }}</em></div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <div class="members-cta rv">
+      <a class="btn btn-navy" style="padding:16px 36px;font-size:16.5px" href="{{ url_for('auth.signup_form') }}">무료 회원가입하고 프로필 전체 보기</a>
+      <p class="note">가입은 무료이며, 이메일 접수 후 담당자가 개별 안내드립니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3대 직영 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="tag">WHY US</div>
+        <h2>라오스 정부 정식 허가,<br>전 과정 직영 시스템</h2>
+      </div>
+      <p>중간 에이전트 없이 회사가 처음부터 끝까지 직접 운영합니다.</p>
+    </div>
+
+    <div class="direct-row rv">
+      <div class="d-media"><div class="visual"><img class="photo" src="{{ url_for('static', filename='img/office-01.jpg') }}" alt="라오스 비엔티안 K GLOBAL LAO 지사 사옥" loading="lazy"></div></div>
+      <div class="d-body">
+        <div class="d-num">01</div>
+        <h3>라오스 현지 지사 직영</h3>
+        <p>비엔티안에 <b>{{ site.company_lao }}</b> 법인을 두고 라오스 정부의 국제결혼 컨설팅 허가를 받아 운영합니다. 라오스 각 군 단위에 신부님을 직접 모집하는 인력을 구축하여 신원 검증까지 현지에서 직접 진행합니다.</p>
+        <ul class="points">
+          <li>라오스 정부 정식 허가업체 (국제결혼 컨설팅)</li>
+          <li>현지 마담·에이전트를 거치지 않는 직접 발굴</li>
+          <li>현지 지사에서 신원 검증 후 등록</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="direct-row flip rv">
+      <div class="d-media"><div class="visual"><img class="photo" src="{{ url_for('static', filename='img/academy-01.jpg') }}" alt="직영 한국어학당 수업 모습" loading="lazy"></div></div>
+      <div class="d-body">
+        <div class="d-num">02</div>
+        <h3>한국어학당 · 기숙사 직영 운영</h3>
+        <p>성혼 후 신부님은 직영 기숙사에서 생활하며 어학당에서 약 3개월간 한국어 토픽시험을 준비합니다. 한국 문화와 예절, 한국 음식까지 함께 가르쳐 입국 후 정착을 돕습니다.</p>
+        <ul class="points">
+          <li>라오스 정부 한국어학당 정식 허가</li>
+          <li>직영 기숙사 생활 + 어학당 통학</li>
+          <li>한국 문화 · 생활 예절 · 한국 요리 교육 병행</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="direct-row rv">
+      <div class="d-media"><div class="visual"><img class="photo" src="{{ url_for('static', filename='img/office-02.jpg') }}" alt="비자 수속 상담 사무실" loading="lazy"></div></div>
+      <div class="d-body">
+        <div class="d-num">03</div>
+        <h3>혼인신고·비자대행까지 직영으로</h3>
+        <p>라오스인·외국인 혼인신고 대행, 번역·공증, 한국 비자 대행 서비스까지 회사가 직접 처리합니다. 외부 대행 없이 원스톱으로 진행되어 빠르고 투명합니다.</p>
+        <ul class="points">
+          <li>혼인신고 · 번역 · 공증 원스톱 대행</li>
+          <li>결혼비자 서류 준비부터 발급까지 직접 처리</li>
+          <li>진행 상황 실시간 공유</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 절차 -->
+<section class="proc">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="tag">PROCESS</div>
+        <h2>결혼까지,<br>이렇게 진행됩니다</h2>
+      </div>
+      <p>상담부터 입국까지 전담 매니저가 함께합니다.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="p-step rv"><div class="dot">1</div><div><h4>상담 · 계약 · 사전매칭</h4><p>1:1 상담 후 계약, 프로필 사전 매칭을 진행합니다.</p></div></div>
+      <div class="p-step rv rv-d1"><div class="dot">2</div><div><h4>영상맞선 · 라오스 방문</h4><p>화상맞선에서 호감을 확인한 뒤 라오스를 방문합니다.</p></div></div>
+      <div class="p-step rv rv-d2"><div class="dot">3</div><div><h4>결혼식 · 신혼여행</h4><p>약식 결혼식과 신혼여행 후 신부님은 기숙사에 입소합니다.</p></div></div>
+      <div class="p-step rv rv-d3"><div class="dot">4</div><div><h4>교육 · 비자 · 입국</h4><p>한국어 교육 이수 후 결혼비자 발급, 한국으로 입국합니다.</p></div></div>
+    </div>
+    <div class="proc-cta rv"><a class="btn btn-gold" href="{{ url_for('pages.process') }}">절차 · 일정표 · 준비서류 자세히 보기</a></div>
+  </div>
+</section>
+
+<!-- 인증자료 -->
+<section class="certs">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-head">
+        <div class="tag">LICENSE</div>
+        <h2>라오스 정부가<br>허가한 회사입니다</h2>
+        <p>{{ site.company_lao }}는 라오스 정부로부터 국제결혼 컨설팅과 한국어학당 운영 허가를 정식으로 받은 업체입니다. 허가 자료 원본을 공개합니다.</p>
+      </div>
+      <ul class="trust-list">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></span><div><b>라오스 정부 사업 허가증</b><em>K GLOBAL LAO Sole Co., Ltd — 국제결혼 컨설팅</em></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg></span><div><b>한국어 교육 센터 허가</b><em>한국어학당 · 기숙사 직영 운영</em></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span><div><b>혼인신고 · 번역공증 · 비자 대행</b><em>라오스인 및 외국인 혼인신고 대행 서비스</em></div></li>
+      </ul>
+      <a class="btn btn-line" href="{{ url_for('pages.license_page') }}">허가자료 원본 전체 보기</a>
+    </div>
+    <div class="paper-stack rv rv-d1">
+      {# TODO(클라이언트 요청): 허가증 고해상 원본 스캔 수급 후 교체 (현재 자료 크롭본) #}
+      <div class="paper paper1"><img src="{{ url_for('static', filename='img/cert-01.png') }}" alt="라오스 정부 허가증 1" loading="lazy"><div class="name">라오스 정부 허가증</div></div>
+      <div class="paper paper2"><img src="{{ url_for('static', filename='img/cert-02.png') }}" alt="라오스 정부 허가증 2" loading="lazy"><div class="name">사업 등록 서류</div></div>
+      <div class="paper paper3"><img src="{{ url_for('static', filename='img/cert-03.png') }}" alt="라오스 정부 허가증 3" loading="lazy"><div class="name">허가 서류</div></div>
+      <div class="paper-note">※ 허가자료 페이지에서 원본을 크게 보실 수 있습니다</div>
+    </div>
+  </div>
+</section>
+
+<!-- 인삿말 티저 -->
+<section class="greet">
+  <div class="wrap">
+    <div class="greet-media rv">
+      <div class="main-ph"><img class="photo" src="{{ url_for('static', filename='img/office-01.jpg') }}" alt="라오스 비엔티안 글로벌라오 지사" loading="lazy"></div>
+      <div class="card-ph"><img src="{{ url_for('static', filename='img/namecard.png') }}" alt="글로벌라오 대표 명함" loading="lazy"></div>
+    </div>
+    <div class="rv rv-d1">
+      <div class="sec-head" style="margin-bottom:0;display:block">
+        <div class="tag">GREETING</div>
+        <h2>“평생의 인연,<br>처음부터 끝까지 직접 책임지겠습니다”</h2>
+      </div>
+      <p style="color:var(--ink-soft);margin:18px 0 24px">저희 회사는 라오스 현지에서 {{ site.brand_en }}라는 국제결혼 컨설팅 및 한국어학당 허가를 정식으로 받아 운영하고 있습니다. 결혼 후 신부님이 한국에서 잘 살아갈 수 있도록 한국어와 문화, 예절, 한국 음식을 가르치는 어학당과 기숙사를 직접 운영합니다.</p>
+      <a class="btn btn-navy" href="{{ url_for('pages.greeting') }}">인삿말 전체 보기</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

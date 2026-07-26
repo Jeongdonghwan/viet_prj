@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}여성회원 — {{ site.brand_ko }}{% endblock %}
+{% block meta_desc %}지금 한국 남성을 기다리는 라오스 여성회원. 개인정보 보호를 위해 사진과 프로필은 회원가입 승인 후 열람하실 수 있습니다.{% endblock %}
+{% block body_class %}pg-members{% endblock %}
+
+{% block content %}
+<div class="page-hero">
+  <div class="tag">WAITING MEMBERS</div>
+  <h1>여성회원</h1>
+  <p>지금 한국 남성을 기다리는 여성회원입니다.</p>
+</div>
+<section>
+  <div class="wrap wrap-n">
+    {% if not viewer_approved %}
+    <div class="gate rv">
+      <div class="lockwrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+      <h2>여성회원 프로필은<br>회원님께만 공개됩니다</h2>
+      <p>여성회원의 개인정보와 초상권 보호를 위해<br>사진과 상세 프로필은 회원가입 후 열람하실 수 있습니다.</p>
+      <a class="btn btn-navy" style="padding:16px 34px;font-size:16.5px" href="{{ url_for('auth.signup_form') }}">무료 회원가입하고 전체 프로필 보기</a>
+      <p style="margin-top:12px;font-size:14px">이미 회원이신가요? <a href="{{ url_for('auth.login_form') }}" style="color:var(--brand);font-weight:800">로그인</a></p>
+    </div>
+    {% endif %}
+
+    {% if members %}
+    <div class="member-grid rv">
+      {% for m in members %}
+      {% set main = (m.photos | selectattr('is_main') | first) or (m.photos | first) %}
+      {% if viewer_approved %}
+      <a class="mem-card" href="{{ url_for('pages.member_detail', member_id=m.id) }}">
+        <div class="mem-photo">
+          {% if main %}<img class="photo" src="{{ url_for('static', filename=main.path) }}" alt="{{ m.name_masked }} 님 프로필 사진" loading="lazy">
+          {% else %}<div class="ph">[사진 준비 중]</div>{% endif %}
+        </div>
+        <div class="mem-info"><b>{{ m.name_masked }} 님 · {{ m.age }}세</b><em>{{ m.region }}{% if m.job_note %} · {{ m.job_note }}{% endif %}</em></div>
+      </a>
+      {% else %}
+      <div class="mem-card">
+        <div class="mem-photo">
+          {% if main %}<img class="photo" src="{{ url_for('static', filename=main.path) }}" alt="여성회원 프로필 (잠금)" loading="lazy">
+          {% else %}<div class="ph">[여성회원 사진]</div>{% endif %}
+          <div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div>
+        </div>
+        <div class="mem-info"><b>{{ m.name_masked }} 님 · {{ m.age }}세</b><em>{{ m.region }}{% if m.job_note %} · {{ m.job_note }}{% endif %}</em></div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    {% else %}
+    {# 등록된 여성회원이 없을 때 — 잠금 더미 노출 #}
+    <div class="member-grid rv">
+      {% set dummy = [
+        ('P○○ 님 · 24세', '비엔티안 · 한국어 학습 중'),
+        ('S○○ 님 · 26세', '루앙프라방 · 회사원'),
+        ('K○○ 님 · 23세', '비엔티안 · 대학 재학'),
+        ('V○○ 님 · 28세', '팍세 · 자영업'),
+        ('N○○ 님 · 25세', '비엔티안 · 간호사'),
+        ('T○○ 님 · 27세', '사반나켓 · 교사'),
+        ('L○○ 님 · 24세', '비엔티안 · 판매직'),
+        ('C○○ 님 · 29세', '루앙프라방 · 미용사'),
+      ] %}
+      {% for name, note in dummy %}
+      <div class="mem-card">
+        <div class="mem-photo">
+          <div class="ph">[여성회원 사진]</div>
+          {% if not viewer_approved %}
+          <div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div>
+          {% endif %}
+        </div>
+        <div class="mem-info"><b>{{ name }}</b><em>{{ note }}</em></div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

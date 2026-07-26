@@ -1,0 +1,52 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ m.name_masked }} 관리{% endblock %}
+{% block content %}
+<h1>{{ m.name_masked }} <span class="muted" style="font-size:14px">· {{ m.age }}세 · {{ m.region }}</span></h1>
+<p style="margin:-10px 0 16px"><a class="muted" href="{{ url_for('admin.members') }}">← 목록으로</a></p>
+
+<div class="card">
+  <h2>기본 정보</h2>
+  <form method="post" action="{{ url_for('admin.member_update', member_id=m.id) }}">
+    <div class="frow" style="margin-bottom:12px">
+      <div class="fld"><label>표시 이름</label><input type="text" name="name_masked" value="{{ m.name_masked }}" required style="width:110px"></div>
+      <div class="fld"><label>나이</label><input type="number" name="age" value="{{ m.age }}" min="19" max="45" required style="width:80px"></div>
+      <div class="fld"><label>지역</label><input type="text" name="region" value="{{ m.region }}" required style="width:130px"></div>
+      <div class="fld"><label>카드 한 줄 소개</label><input type="text" name="job_note" value="{{ m.job_note }}" style="width:200px"></div>
+      <div class="fld"><label>정렬</label><input type="number" name="sort_order" value="{{ m.sort_order }}" style="width:70px"></div>
+      <div class="fld"><label style="display:flex;gap:6px;align-items:center;padding:8px 0"><input type="checkbox" name="is_active" {% if m.is_active %}checked{% endif %}> 공개</label></div>
+    </div>
+    <div class="fld" style="margin-bottom:12px">
+      <label>상세 소개 <span class="muted">— 상세 프로필 페이지에 표시됩니다</span></label>
+      <textarea name="intro" rows="5" style="width:100%;padding:9px 11px;border:1.5px solid #DEDDD5;border-radius:8px;font-size:14px;font-family:inherit;resize:vertical">{{ m.intro }}</textarea>
+    </div>
+    <button class="btn btn-green">저장</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>사진 ({{ m.photos | length }}장)</h2>
+  <form method="post" action="{{ url_for('admin.photo_upload', member_id=m.id) }}" enctype="multipart/form-data" style="margin-bottom:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <input type="file" name="photos" accept=".jpg,.jpeg,.png,.webp" multiple required>
+    <button class="btn btn-accent">업로드</button>
+    <span class="muted">jpg/png/webp · 여러 장 선택 가능 · 자동 리사이즈(1200px) · 첫 업로드는 자동 대표컷</span>
+  </form>
+  <div class="photo-grid">
+    {% for p in m.photos %}
+    <div class="photo-card {% if p.is_main %}main{% endif %}">
+      <div class="pcwrap">
+        {% if p.is_main %}<span class="main-tag">대표</span>{% endif %}
+        <img src="{{ url_for('static', filename=p.path) }}" alt="">
+      </div>
+      <div class="acts">
+        {% if not p.is_main %}
+        <form class="inline" method="post" action="{{ url_for('admin.photo_set_main', photo_id=p.id) }}"><button class="btn btn-sm btn-line">대표 지정</button></form>
+        {% endif %}
+        <form class="inline" method="post" action="{{ url_for('admin.photo_delete', photo_id=p.id) }}" onsubmit="return confirm('사진을 삭제하시겠습니까?')"><button class="btn btn-sm btn-red">삭제</button></form>
+      </div>
+    </div>
+    {% else %}
+    <p class="muted">아직 사진이 없습니다.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

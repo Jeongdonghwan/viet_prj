@@ -1,0 +1,47 @@
+{% extends "admin/base.html" %}
+{% block title %}여성회원{% endblock %}
+{% block content %}
+<h1>여성회원 관리</h1>
+
+<div class="card">
+  <h2>신규 등록</h2>
+  <form method="post" action="{{ url_for('admin.member_create') }}">
+    <div class="frow" style="margin-bottom:12px">
+      <div class="fld"><label>표시 이름 (마스킹)</label><input type="text" name="name_masked" placeholder="예: P○○" required style="width:110px"></div>
+      <div class="fld"><label>나이</label><input type="number" name="age" min="19" max="45" required style="width:80px"></div>
+      <div class="fld"><label>지역</label><input type="text" name="region" placeholder="예: 비엔티안" required style="width:130px"></div>
+      <div class="fld"><label>카드 한 줄 소개</label><input type="text" name="job_note" placeholder="예: 한국어 학습 중" style="width:200px"></div>
+      <div class="fld"><label>정렬</label><input type="number" name="sort_order" value="0" style="width:70px"></div>
+      <div class="fld"><label style="display:flex;gap:6px;align-items:center;padding:8px 0"><input type="checkbox" name="is_active" checked> 공개</label></div>
+    </div>
+    <div class="fld" style="margin-bottom:12px">
+      <label>상세 소개 <span class="muted">— 상세 프로필 페이지에 표시됩니다 (성격, 취미, 가족, 결혼관 등)</span></label>
+      <textarea name="intro" rows="4" placeholder="예: 밝고 차분한 성격으로, 가족을 아끼는 마음이 깊습니다. 현재 어학당에서 한국어를 배우고 있으며 한국 문화에 관심이 많습니다." style="width:100%;padding:9px 11px;border:1.5px solid #DEDDD5;border-radius:8px;font-size:14px;font-family:inherit;resize:vertical"></textarea>
+    </div>
+    <button class="btn btn-green">등록 후 사진 업로드 →</button>
+  </form>
+</div>
+
+<table class="list">
+  <tr><th>대표사진</th><th>표시 이름</th><th>나이</th><th>지역</th><th>소개</th><th>사진 수</th><th>정렬</th><th>상태</th><th>관리</th></tr>
+  {% for m in members %}
+  {% set main = (m.photos | selectattr('is_main') | first) or (m.photos | first) %}
+  <tr>
+    <td>{% if main %}<img src="{{ url_for('static', filename=main.path) }}" style="width:44px;height:58px;object-fit:cover;border-radius:6px" alt="">{% else %}<span class="muted">없음</span>{% endif %}</td>
+    <td><b>{{ m.name_masked }}</b></td>
+    <td>{{ m.age }}세</td>
+    <td>{{ m.region }}</td>
+    <td class="muted">{{ m.job_note or '—' }}</td>
+    <td>{{ m.photos | length }}장</td>
+    <td>{{ m.sort_order }}</td>
+    <td><span class="badge {{ 'approved' if m.is_active else 'off' }}">{{ '공개' if m.is_active else '비공개' }}</span></td>
+    <td style="white-space:nowrap">
+      <a class="btn btn-sm btn-line" href="{{ url_for('admin.member_edit', member_id=m.id) }}">수정 · 사진</a>
+      <form class="inline" method="post" action="{{ url_for('admin.member_delete', member_id=m.id) }}" onsubmit="return confirm('삭제하시겠습니까? 사진도 함께 삭제됩니다.')"><button class="btn btn-sm btn-red">삭제</button></form>
+    </td>
+  </tr>
+  {% else %}
+  <tr><td colspan="9" class="muted" style="text-align:center;padding:24px">등록된 여성회원이 없습니다. 위에서 등록해 주세요.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>{% block title %}관리자{% endblock %} — {{ site.brand_ko }}</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{--brand:#3A4234;--brand-deep:#272D23;--accent:#C4693B;--line:#E7E6E0;--ink:#24271F;--soft:#6E7263}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard',-apple-system,sans-serif;background:#F6F6F3;color:var(--ink);font-size:14.5px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.topbar{background:var(--brand-deep);color:#fff;display:flex;align-items:center;gap:22px;padding:0 22px;height:52px}
+.topbar .logo{font-weight:900;font-size:15px;color:#E9ECDD}
+.topbar .logo em{font-style:normal;color:#B9C0A8;font-weight:600;font-size:12px;margin-left:6px}
+.topbar nav{display:flex;gap:4px;flex:1}
+.topbar nav a{padding:6px 12px;border-radius:8px;font-weight:600;font-size:13.5px;color:#C9CFBB}
+.topbar nav a:hover{background:rgba(255,255,255,.08)}
+.topbar nav a.on{background:rgba(255,255,255,.14);color:#fff}
+.topbar .out{font-size:13px;color:#AEB5A0}
+.container{max-width:1080px;margin:0 auto;padding:26px 20px 60px}
+h1{font-size:20px;font-weight:800;margin-bottom:18px}
+h2{font-size:15px;font-weight:800;margin-bottom:10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:20px}
+table.list{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px}
+table.list th{background:#FAFAF7;border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;font-size:12.5px;color:var(--soft);white-space:nowrap}
+table.list td{border-bottom:1px solid #F0EFEA;padding:9px 10px;vertical-align:middle}
+table.list tr:hover td{background:#FBFBF8}
+.badge{display:inline-block;padding:2px 10px;border-radius:100px;font-size:12px;font-weight:700}
+.badge.pending{background:#FDF3E3;color:#B07818}
+.badge.approved{background:#E8F0E4;color:#3F6B33}
+.badge.blocked{background:#FDECEA;color:#B03A31}
+.badge.off{background:#EFEFEA;color:#8A8D80}
+.btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:8px;padding:8px 14px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:.15s}
+.btn-sm{padding:5px 10px;font-size:12.5px;border-radius:7px}
+.btn-green{background:var(--brand);color:#fff}.btn-green:hover{background:var(--brand-deep)}
+.btn-line{background:#fff;border:1px solid #D8D7CF;color:var(--ink)}.btn-line:hover{background:#F4F4EF}
+.btn-red{background:#fff;border:1px solid #E5C0BC;color:#B03A31}.btn-red:hover{background:#FDECEA}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{background:#B25C31}
+input[type=text],input[type=number],input[type=password],select{padding:8px 10px;border:1.5px solid #DEDDD5;border-radius:8px;font-size:14px;font-family:inherit;background:#fff}
+input:focus,select:focus{outline:none;border-color:var(--brand)}
+label{font-size:13px;font-weight:600;color:#4A4E42}
+.frow{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.frow .fld{display:flex;flex-direction:column;gap:4px}
+.tabs{display:flex;gap:6px;margin-bottom:14px}
+.tabs a{padding:6px 14px;border-radius:100px;font-size:13px;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--soft)}
+.tabs a.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.muted{color:var(--soft);font-size:13px}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:22px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.stat b{display:block;font-size:24px;font-weight:800}
+.stat span{font-size:12.5px;color:var(--soft)}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.photo-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.photo-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.photo-card .acts{display:flex;gap:5px;padding:7px;justify-content:center;flex-wrap:wrap}
+.photo-card.main{border:2px solid var(--accent)}
+.main-tag{position:absolute;background:var(--accent);color:#fff;font-size:11px;font-weight:800;padding:2px 8px;border-radius:0 0 8px 0}
+.pcwrap{position:relative}
+.inline{display:inline}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="logo">{{ site.brand_ko }}<em>ADMIN</em></span>
+  <nav>
+    <a href="{{ url_for('admin.dashboard') }}" {% if request.endpoint == 'admin.dashboard' %}class="on"{% endif %}>대시보드</a>
+    <a href="{{ url_for('admin.users') }}" {% if request.endpoint == 'admin.users' %}class="on"{% endif %}>가입 신청</a>
+    <a href="{{ url_for('admin.members') }}" {% if request.endpoint in ('admin.members', 'admin.member_edit') %}class="on"{% endif %}>여성회원</a>
+  </nav>
+  <a class="out" href="{{ url_for('pages.index') }}" target="_blank">사이트 보기 ↗</a>
+  <a class="out" href="{{ url_for('admin.logout') }}">로그아웃</a>
+</div>
+<div class="container">
+{% block content %}{% endblock %}
+</div>
+</body>
+</html>

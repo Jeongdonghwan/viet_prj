@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+{% block title %}대시보드{% endblock %}
+{% block content %}
+<h1>대시보드</h1>
+<div class="stat-grid">
+  <a class="stat" href="{{ url_for('admin.users', status='pending') }}"><b style="color:#B07818">{{ stats.pending }}</b><span>승인 대기</span></a>
+  <a class="stat" href="{{ url_for('admin.users', status='approved') }}"><b style="color:#3F6B33">{{ stats.approved }}</b><span>승인 회원</span></a>
+  <a class="stat" href="{{ url_for('admin.users', status='blocked') }}"><b style="color:#B03A31">{{ stats.blocked }}</b><span>차단</span></a>
+  <a class="stat" href="{{ url_for('admin.members') }}"><b>{{ stats.members_active }} / {{ stats.members }}</b><span>여성회원 (공개/전체)</span></a>
+</div>
+<div class="card">
+  <h2>바로가기</h2>
+  <p class="muted" style="margin-bottom:10px">신규 가입 신청은 <b>승인 대기</b>에서 확인 후 승인하면 여성회원 프로필 열람 권한이 부여됩니다.</p>
+  <a class="btn btn-green" href="{{ url_for('admin.users', status='pending') }}">승인 대기 목록</a>
+  <a class="btn btn-line" href="{{ url_for('admin.members') }}">여성회원 관리</a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+# systemd 서비스 — /etc/systemd/system/glaos.service
+[Unit]
+Description=K-GLOBAL LAOS Flask (gunicorn)
+After=network.target mariadb.service
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/srv/glaos
+EnvironmentFile=/srv/glaos/.env
+ExecStart=/srv/glaos/venv/bin/gunicorn -c deploy/gunicorn.conf.py "app:create_app()"
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

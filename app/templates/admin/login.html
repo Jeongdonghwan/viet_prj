@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>관리자 로그인 — {{ site.brand_ko }}</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif;background:#272D23;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.box{background:#fff;border-radius:14px;padding:34px 30px;width:100%;max-width:360px}
+.box h1{font-size:18px;font-weight:800;color:#24271F;margin-bottom:4px}
+.box p{font-size:13px;color:#6E7263;margin-bottom:20px}
+.box input{width:100%;padding:11px 12px;border:1.5px solid #DEDDD5;border-radius:9px;font-size:15px;font-family:inherit;margin-bottom:10px}
+.box input:focus{outline:none;border-color:#3A4234}
+.box button{width:100%;background:#3A4234;color:#fff;border:none;border-radius:9px;padding:12px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;margin-top:4px}
+.box button:hover{background:#272D23}
+.err{background:#FDECEA;color:#B03A31;border-radius:8px;padding:10px 12px;font-size:13px;font-weight:600;margin-bottom:12px}
+</style>
+</head>
+<body>
+<form class="box" method="post" action="{{ url_for('admin.login_submit', next=request.args.get('next', '')) }}">
+  <h1>{{ site.brand_ko }} 관리자</h1>
+  <p>관리자 계정으로 로그인하세요.</p>
+  {% if error %}<div class="err">{{ error }}</div>{% endif %}
+  <input type="text" name="username" placeholder="아이디" autocomplete="username" required autofocus>
+  <input type="password" name="password" placeholder="비밀번호" autocomplete="current-password" required>
+  <button type="submit">로그인</button>
+</form>
+</body>
+</html>

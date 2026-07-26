@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}화상맞선의 장점 — {{ site.brand_ko }}{% endblock %}
+{% block meta_desc %}라오스에 가기 전 한국에서 먼저 만나는 1:1 화상맞선. 통역 지원, 검증된 여성회원, 확신이 선 후에 출국하세요.{% endblock %}
+{% block body_class %}pg-video{% endblock %}
+
+{% block content %}
+<div class="page-hero">
+  <div class="tag">VIDEO MATCHING</div>
+  <h1>화상맞선의 장점</h1>
+  <p>라오스에 가기 전, 한국에서 먼저 확신을 얻으세요.</p>
+</div>
+
+<!-- 화상맞선이란 -->
+<section class="intro">
+  <div class="wrap wrap-n">
+    <div class="rv">
+      <div class="sec-head block" style="margin-bottom:0">
+        <div class="tag">WHAT IS</div>
+        <h2>1:1 화상맞선,<br>이렇게 진행됩니다</h2>
+      </div>
+      <p style="margin-top:16px">화상맞선은 라오스 현지에 있는 여성회원과 한국에 계신 신랑님이 영상통화로 직접 만나는 맞선 방식입니다.</p>
+      <p>전담 통역이 실시간으로 함께하기 때문에 언어 걱정 없이 자연스럽게 대화할 수 있고, 표정과 말투, 분위기까지 사진 프로필만으로는 알 수 없는 것들을 직접 확인할 수 있습니다.</p>
+      <p>서로 호감이 확인된 후에 현지 방문을 결정하므로, 확신 없이 출국하는 일이 없습니다.</p>
+    </div>
+    <div class="visual rv rv-d1">
+      {# 화상맞선 실제 진행 장면 사진 수급 시 교체 — 현재 어학당 화상수업 컷 대체 사용 #}
+      <img class="photo" src="{{ url_for('static', filename='img/academy-02.jpg') }}" alt="라오스 현지 어학당 — 통역과 함께하는 온라인 만남 환경" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- 장점 6가지 -->
+<section class="adv">
+  <div class="wrap wrap-n">
+    <div class="sec-head block rv">
+      <div class="tag">ADVANTAGES</div>
+      <h2>화상맞선이 좋은 6가지 이유</h2>
+    </div>
+    <div class="adv-grid">
+      <div class="a-card rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>시간과 비용 절약</h3><p>맞선을 위해 여러 번 출국할 필요가 없습니다. 한국에서 일상 그대로, 퇴근 후에도 맞선이 가능합니다.</p></div>
+      <div class="a-card rv rv-d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h3>검증된 여성회원만</h3><p>라오스 각 군 단위에서 직접 모집하고 현지 지사에서 신원이 확인된 여성회원만 맞선에 참여합니다.</p></div>
+      <div class="a-card rv rv-d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>통역과 함께, 언어 걱정 없이</h3><p>전담 통역이 실시간으로 대화를 도와드립니다. 성격과 가치관까지 깊이 있는 대화가 가능합니다.</p></div>
+      <div class="a-card rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></div><h3>마음에 들 때까지</h3><p>한 번의 만남으로 결정할 필요가 없습니다. 여러 여성회원과 충분히 만나보고 신중하게 선택하세요.</p></div>
+      <div class="a-card rv rv-d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg></div><h3>확신이 선 후에 출국</h3><p>서로 호감을 확인한 뒤 현지 방문을 결정합니다. 라오스 결혼은 1회 방문으로 진행되는 만큼, 헛걸음이 없어야 합니다.</p></div>
+      <div class="a-card rv rv-d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-4h6v4"/><path d="M8.5 7.5h2m3 0h2m-7 4h2m3 0h2"/></svg></div><h3>직영이라 가능한 즉시 주선</h3><p>라오스 현지 지사가 직영이기에 원하는 일정에 맞춰 빠르게 화상맞선을 잡아드립니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 진행 방법 -->
+<section>
+  <div class="wrap wrap-n">
+    <div class="sec-head block rv">
+      <div class="tag">HOW TO</div>
+      <h2>화상맞선 진행 방법</h2>
+    </div>
+    <div class="how-steps">
+      <div class="h-step rv"><div class="dot">1</div><div><h4>회원가입 · 상담</h4><p>이상형과 조건을 상담으로 파악합니다.</p></div></div>
+      <div class="h-step rv rv-d1"><div class="dot">2</div><div><h4>프로필 열람 · 선택</h4><p>여성회원 프로필에서 맞선 상대를 고릅니다.</p></div></div>
+      <div class="h-step rv rv-d2"><div class="dot">3</div><div><h4>일정 조율</h4><p>현지 지사가 원하는 시간에 맞선을 잡아드립니다.</p></div></div>
+      <div class="h-step rv"><div class="dot">4</div><div><h4>1:1 화상맞선</h4><p>통역과 함께 영상으로 만납니다.</p></div></div>
+    </div>
+    <div style="margin-top:48px" class="rv">
+      <div class="trust">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11.5 2 2 4-4.5"/></svg></div>
+        <div>
+          <h3>맞선 전, 신상정보 확인은 기본입니다</h3>
+          <p>결혼중개업의 관리에 관한 법률에 따라 맞선 전 상대방의 신상정보를 서면으로 확인하실 수 있도록 안내드립니다. 현지 방문 시에는 병원검사(성병 · 에이즈 · 정신과 등)로 건강 상태까지 확인합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 라오스 여성 이야기 -->
+<section class="adv">
+  <div class="wrap wrap-n">
+    <div class="sec-head block rv">
+      <div class="tag">ABOUT LAOS</div>
+      <h2>라오스 여성에게<br>가족을 이룬다는 것은?</h2>
+      <p>불교문화권의 라오스 여성들이 가진 가족관과 결혼관을 소개합니다.</p>
+    </div>
+    <div class="laowoman-grid">
+      <div class="lw-card rv">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg>라오스 여성이란?</h3>
+        <ul>
+          <li><b>온화하고 차분함</b>불교문화권으로 조용하고 온화한 성격을 가진 경우가 많습니다.</li>
+          <li><b>겸손과 예의바름</b>나이가 많거나 사회적 지위가 있는 사람을 존중하는 태도가 생활 속에 배어 있습니다.</li>
+          <li><b>근면 · 성실함</b>농업과 소규모 상업이 생활 기반인 경우가 많아, 가사 · 노동에 익숙한 여성이 많습니다.</li>
+          <li><b>공동체적 성향</b>마을 · 가족 단위 공동체 생활을 중시하며 타인과의 협력과 배려가 생활 습관으로 자리잡혀 있습니다.</li>
+        </ul>
+      </div>
+      <div class="lw-card rv rv-d1">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21v-8l9-7 9 7v8"/><path d="M9 21v-6h6v6"/></svg>라오스 여성에게 가족이란?</h3>
+        <ul>
+          <li><b>가족중심적 가치관</b>가족을 가장 중요한 삶의 기반으로 생각하며, 부모와 형제를 돕는 것을 당연시합니다.</li>
+          <li><b>효(孝)와 존중</b>부모에 대한 존경심이 강하고, 결혼 후에도 부모 · 형제를 돌보려는 경향이 있습니다.</li>
+          <li><b>가정적 역할 중시</b>가정을 돌보고 자녀를 양육하는 데 헌신적인 태도를 보이는 경우가 많습니다.</li>
+          <li><b>안정된 가정 지향</b>국제결혼을 통해서도 안정된 가정과 자녀의 교육 · 생활수준 향상을 중요하게 생각합니다.</li>
+        </ul>
+      </div>
+      <div class="lw-card rv rv-d2">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>라오스 여성에게 결혼이란?</h3>
+        <ul>
+          <li><b>책임감 있는 배우자 선호</b>가정의 경제적 · 정서적 안정을 책임져줄 수 있는 사람을 선호합니다.</li>
+          <li><b>생활 안정에 대한 기대</b>국제결혼을 통해 생활의 질을 개선하고, 가족에게도 도움을 줄 수 있다고 생각하는 경우가 있습니다.</li>
+          <li><b>상호 존중 강조</b>문화 차이가 있더라도 존중해주는 태도를 높이 평가합니다.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>오늘 저녁, 첫 화상맞선을 잡아보세요</h2>
+  <p>회원가입 후 담당 매니저가 일정을 안내드립니다.</p>
+  <a class="btn btn-white" href="{{ url_for('auth.signup_form') }}">무료 회원가입하기</a>
+</div>
+{% endblock %}
