@@ -1,6 +1,6 @@
 """회원가입 — 유효성 검증 → bcrypt 해시 → DB 저장 → 관리자 메일 발송."""
 import re
-from datetime import date, datetime
+from datetime import date
 
 import bcrypt
 from flask import (Blueprint, current_app, redirect, render_template, request,
@@ -18,6 +18,11 @@ PHONE_RE = re.compile(r"^0\d{1,2}-?\d{3,4}-?\d{4}$")
 EDUCATIONS = ["고등학교 졸업", "전문대 졸업", "대학교 졸업", "대학원 이상", "기타"]
 INCOMES = ["2,000만원 미만", "2,000 ~ 3,000만원", "3,000 ~ 4,000만원",
            "4,000 ~ 5,000만원", "5,000 ~ 7,000만원", "7,000만원 이상"]
+
+
+def _birth_years():
+    """만 19세 이상 — 최신 연도부터 내림차순."""
+    return range(date.today().year - 19, 1949, -1)
 
 
 @bp.get("/login")
@@ -57,7 +62,8 @@ def logout():
 @bp.get("/signup")
 def signup_form():
     return render_template("signup.html", form={}, errors={}, checked_status=[],
-                           educations=EDUCATIONS, incomes=INCOMES)
+                           educations=EDUCATIONS, incomes=INCOMES,
+                           birth_years=_birth_years())
 
 
 @bp.get("/signup/done")
@@ -80,7 +86,6 @@ def signup_submit():
     password = f.get("password", "")
     password2 = f.get("password2", "")
     name = f.get("name", "").strip()
-    birth_raw = f.get("birth", "")
     phone = f.get("phone", "").strip()
     address = f.get("address", "").strip()
     education = f.get("education", "")
@@ -100,11 +105,12 @@ def signup_submit():
 
     birth = None
     try:
-        birth = datetime.strptime(birth_raw, "%Y-%m-%d").date()
-        if not (1930 <= birth.year <= date.today().year - 19):
+        birth = date(int(f.get("birth_y", "")), int(f.get("birth_m", "")),
+                     int(f.get("birth_d", "")))
+        if not (1950 <= birth.year <= date.today().year - 19):
             errors["birth"] = "생년월일을 확인해주세요. (만 19세 이상)"
     except ValueError:
-        errors["birth"] = "생년월일을 입력해주세요."
+        errors["birth"] = "생년월일을 선택해주세요."
 
     if not PHONE_RE.match(phone):
         errors["phone"] = "연락처 형식을 확인해주세요. (예: 010-0000-0000)"
@@ -123,7 +129,8 @@ def signup_submit():
     if errors:
         return render_template("signup.html", form=f, errors=errors,
                                checked_status=statuses,
-                               educations=EDUCATIONS, incomes=INCOMES), 400
+                               educations=EDUCATIONS, incomes=INCOMES,
+                               birth_years=_birth_years()), 400
 
     pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
     user = User(

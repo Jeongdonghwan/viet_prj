@@ -61,7 +61,26 @@
       </div>
       <div class="field">
         <label>생년월일 <span class="req">*</span></label>
-        <input type="date" name="birth" value="{{ form.get('birth', '') }}" required>
+        <div class="birth-row">
+          <select name="birth_y" required>
+            <option value="">년</option>
+            {% for y in birth_years %}
+            <option value="{{ y }}" {% if form.get('birth_y') == y|string %}selected{% endif %}>{{ y }}년</option>
+            {% endfor %}
+          </select>
+          <select name="birth_m" required>
+            <option value="">월</option>
+            {% for m in range(1, 13) %}
+            <option value="{{ m }}" {% if form.get('birth_m') == m|string %}selected{% endif %}>{{ m }}월</option>
+            {% endfor %}
+          </select>
+          <select name="birth_d" required>
+            <option value="">일</option>
+            {% for d in range(1, 32) %}
+            <option value="{{ d }}" {% if form.get('birth_d') == d|string %}selected{% endif %}>{{ d }}일</option>
+            {% endfor %}
+          </select>
+        </div>
         {% if errors.birth %}<div class="field-error">{{ errors.birth }}</div>{% endif %}
       </div>
     </div>
