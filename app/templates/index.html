@@ -8,7 +8,7 @@
 <div class="hero">
   {# 좌측 배경: 동일 사진의 블러 확장 — 화면 전체가 한 컷처럼 보이게 #}
   <img class="hero-blur" src="{{ url_for('static', filename='img/wedding-02.jpg') }}" alt="" aria-hidden="true">
-  <img class="hero-bg" src="{{ url_for('static', filename='img/wedding-02.jpg') }}" alt="글로벌라오 성혼 커플 웨딩 촬영">
+  <img class="hero-bg" src="{{ url_for('static', filename='img/wedding-02.jpg') }}" alt="{{ site.brand_ko }} 성혼 커플 웨딩 촬영">
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap hero-content">
     <h1>라오스에서 만나는<br><span class="hl">단 하나의 진심</span></h1>
@@ -217,7 +217,7 @@
 <section class="greet">
   <div class="wrap">
     <div class="greet-media rv">
-      <div class="main-ph"><img class="photo" src="{{ url_for('static', filename='img/office-01.jpg') }}" alt="라오스 비엔티안 글로벌라오 지사" loading="lazy"></div>
+      <div class="main-ph"><img class="photo" src="{{ url_for('static', filename='img/office-01.jpg') }}" alt="라오스 비엔티안 {{ site.brand_en }} 사옥" loading="lazy"></div>
     </div>
     <div class="rv rv-d1">
       <div class="sec-head" style="margin-bottom:0;display:block">

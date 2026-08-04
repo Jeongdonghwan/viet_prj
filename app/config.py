@@ -35,10 +35,12 @@ class Config:
 # 사이트 전역 정보 — 템플릿에 context_processor로 주입.
 # 미확정 값은 TODO 주석 참고, 이 파일 한 곳만 수정하면 전체 반영됨.
 SITE = {
-    "brand_ko": "글로벌라오",
-    "brand_en": "K-GLOBAL LAOS",
+    "brand_ko": "인터내셔널투어앤웨딩",
+    "brand_en": "K-GLOBAL LAOS",                   # 라오스 파트너 법인 브랜드
+    "company_kr": "(주)인터내셔널투어앤웨딩",        # 한국 법인 상호 (사업자등록증)
     "company_lao": "K GLOBAL LAO Sole Co., Ltd",  # 라오스 법인명 (간판 표기)
-    "ceo": "구본건",
+    "ceo": "이승훈",                                # 한국 법인 대표 (사업자등록증)
+    "ceo_lao": "구본건",                            # 라오스 법인 대표 (인삿말 서명)
     "email": "glaos2024@gmail.com",
     "tel_kr": "1551-9924",
     "mobile_kr": "010-2608-9987",
@@ -46,8 +48,7 @@ SITE = {
     "tel_vn": "+84 037 418 1199",
     "addr_kr": "전남광주통합특별시 북구 하서로 421 양산빌딩 5층",
     "addr_laos": "Hongkae Village, Xaisedtha District, Vientiane Capital, Laos",
-    # TODO(클라이언트 확인): 사업자등록번호
-    "biz_no": "000-00-00000",
+    "biz_no": "704-88-03145",
     # TODO(클라이언트 확인): 한국 국제결혼중개업 등록번호 (등록 완료 후 기재)
     "broker_no": "",
     # TODO(클라이언트 확인): 카카오톡 채널/오픈채팅 URL — 현재는 QR 이미지만 보유

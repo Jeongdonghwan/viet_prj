@@ -72,7 +72,7 @@
     <div class="links">
       <a href="{{ url_for('pages.greeting') }}">인삿말</a><a href="{{ url_for('pages.license_page') }}">허가자료</a><a href="{{ url_for('pages.process') }}">절차 및 비용</a><a href="{{ url_for('pages.faq') }}">고객센터</a><a href="{{ url_for('pages.location') }}">찾아오시는길</a>
     </div>
-    <p>상호: {{ site.brand_ko }} · 대표: {{ site.ceo }} · 사업자등록번호: {{ site.biz_no }}</p>
+    <p>상호: {{ site.company_kr }} · 대표: {{ site.ceo }} · 사업자등록번호: {{ site.biz_no }} · 업종: 여행사 · 국제결혼중개업</p>
     {# TODO(클라이언트 확인): 한국 국제결혼중개업 등록번호 확정 시 site.broker_no 기재 #}
     {% if site.broker_no %}<p>국제결혼중개업 등록번호: {{ site.broker_no }}</p>{% endif %}
     <p>한국 사무실: {{ site.addr_kr }} · 전화: {{ site.tel_kr }}</p>

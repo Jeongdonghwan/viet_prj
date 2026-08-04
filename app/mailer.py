@@ -19,7 +19,7 @@ def send_signup_mail(user):
         (user.has_children, "자녀 있음"),
     ) if flag]
 
-    body = f"""[글로벌라오] 신규 회원가입 신청이 접수되었습니다.
+    body = f"""[인터내셔널투어앤웨딩] 신규 회원가입 신청이 접수되었습니다.
 
 아이디: {user.login_id}
 이름: {user.name}
