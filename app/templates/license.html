@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}허가자료 — {{ site.brand_ko }}{% endblock %}
-{% block meta_desc %}{{ site.company_kr }} 허가자료 원본 공개 — 국제결혼중개업 등록증({{ site.broker_no }}), 인·허가보증보험증권, 사업자등록증.{% endblock %}
+{% block meta_desc %}{{ site.company_kr }} 허가자료 원본 공개 — 국제결혼중개업 등록증({{ site.broker_no }}), 인·허가보증보험증권.{% endblock %}
 {% block body_class %}pg-license{% endblock %}
 
 {% block content %}
@@ -20,7 +20,6 @@
       {% set certs = [
         ('kr-cert-01.jpg', '국제결혼중개업 등록증', '등록번호 ' + site.broker_no + ' — 광주광역시 북구청장 발급'),
         ('kr-cert-02.jpg', '인 · 허가 보증보험증권', 'SGI 서울보증 — 보증금액 5,000만원'),
-        ('kr-cert-03.jpg', '사업자등록증', site.company_kr + ' — ' + site.biz_no),
       ] %}
       {% for img, title, desc in certs %}
       <div class="lic-item rv{% if loop.index0 == 1 %} rv-d1{% elif loop.index0 == 2 %} rv-d2{% endif %}">
