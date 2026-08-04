@@ -308,7 +308,7 @@ footer.site .links a{color:#CBD1BE;font-weight:600}
 /* ============================================================
    허가자료 (.pg-license)
    ============================================================ */
-.lic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.lic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .lic-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;transition:transform .3s,box-shadow .3s}
 .lic-item:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(44,48,36,.1)}
 .lic-item .scan{height:280px;border-radius:8px;overflow:hidden;background:var(--bg-warm);display:flex;align-items:center;justify-content:center}

@@ -46,11 +46,10 @@ SITE = {
     "mobile_kr": "010-2608-9987",
     "tel_laos": "+856 20 9616 7176",
     "tel_vn": "+84 037 418 1199",
-    "addr_kr": "전남광주통합특별시 북구 하서로 421 양산빌딩 5층",
+    "addr_kr": "광주광역시 북구 하서로 421, 501호 (용두동)",
     "addr_laos": "Hongkae Village, Xaisedtha District, Vientiane Capital, Laos",
     "biz_no": "704-88-03145",
-    # TODO(클라이언트 확인): 한국 국제결혼중개업 등록번호 (등록 완료 후 기재)
-    "broker_no": "",
+    "broker_no": "광주-북구-국제-26-0001",
     # TODO(클라이언트 확인): 카카오톡 채널/오픈채팅 URL — 현재는 QR 이미지만 보유
     "kakao_url": "#",
     "hours": "평일 09:00 – 18:00 (주말·공휴일 사전예약)",
