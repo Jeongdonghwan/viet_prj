@@ -35,7 +35,7 @@ class Config:
 # 사이트 전역 정보 — 템플릿에 context_processor로 주입.
 # 미확정 값은 TODO 주석 참고, 이 파일 한 곳만 수정하면 전체 반영됨.
 SITE = {
-    "brand_ko": "인터내셔널투어앤웨딩",
+    "brand_ko": "(주)인터내셔널투어앤웨딩",
     "brand_en": "K-GLOBAL LAOS",                   # 라오스 파트너 법인 브랜드
     "company_kr": "(주)인터내셔널투어앤웨딩",        # 한국 법인 상호 (사업자등록증)
     "company_lao": "K GLOBAL LAO Sole Co., Ltd",  # 라오스 법인명 (간판 표기)
