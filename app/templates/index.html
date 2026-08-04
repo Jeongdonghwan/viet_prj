@@ -193,21 +193,20 @@
     <div class="rv">
       <div class="sec-head">
         <div class="tag">LICENSE</div>
-        <h2>라오스 정부가<br>허가한 회사입니다</h2>
-        <p>{{ site.company_lao }}는 라오스 정부로부터 국제결혼 컨설팅과 한국어학당 운영 허가를 정식으로 받은 업체입니다. 허가 자료 원본을 공개합니다.</p>
+        <h2>등록번호로<br>확인하세요</h2>
+        <p>{{ site.company_kr }}은 국제결혼중개업 정식 등록 업체입니다. 모든 허가 · 등록 자료의 원본을 공개합니다.</p>
       </div>
       <ul class="trust-list">
-        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></span><div><b>라오스 정부 사업 허가증</b><em>K GLOBAL LAO Sole Co., Ltd — 국제결혼 컨설팅</em></div></li>
-        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg></span><div><b>한국어 교육 센터 허가</b><em>한국어학당 · 기숙사 직영 운영</em></div></li>
-        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span><div><b>혼인신고 · 번역공증 · 비자 대행</b><em>라오스인 및 외국인 혼인신고 대행 서비스</em></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></span><div><b>국제결혼중개업 등록증</b><em>등록번호 {{ site.broker_no }} — 광주광역시 북구청장 발급</em></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span><div><b>인 · 허가 보증보험증권</b><em>SGI 서울보증 — 보증금액 5,000만원</em></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg></span><div><b>사업자등록증 (법인사업자)</b><em>{{ site.company_kr }} — {{ site.biz_no }}</em></div></li>
       </ul>
       <a class="btn btn-line" href="{{ url_for('pages.license_page') }}">허가자료 원본 전체 보기</a>
     </div>
     <div class="paper-stack rv rv-d1">
-      {# TODO(클라이언트 요청): 허가증 고해상 원본 스캔 수급 후 교체 (현재 자료 크롭본) #}
-      <div class="paper paper1"><img src="{{ url_for('static', filename='img/cert-01.png') }}" alt="라오스 정부 허가증 1" loading="lazy"><div class="name">라오스 정부 허가증</div></div>
-      <div class="paper paper2"><img src="{{ url_for('static', filename='img/cert-02.png') }}" alt="라오스 정부 허가증 2" loading="lazy"><div class="name">사업 등록 서류</div></div>
-      <div class="paper paper3"><img src="{{ url_for('static', filename='img/cert-03.png') }}" alt="라오스 정부 허가증 3" loading="lazy"><div class="name">허가 서류</div></div>
+      <div class="paper paper1"><img src="{{ url_for('static', filename='img/kr-cert-01.jpg') }}" alt="국제결혼중개업 등록증" loading="lazy"><div class="name">국제결혼중개업 등록증</div></div>
+      <div class="paper paper2"><img src="{{ url_for('static', filename='img/kr-cert-02.jpg') }}" alt="인·허가 보증보험증권" loading="lazy"><div class="name">보증보험증권</div></div>
+      <div class="paper paper3"><img src="{{ url_for('static', filename='img/kr-cert-03.jpg') }}" alt="사업자등록증" loading="lazy"><div class="name">사업자등록증</div></div>
       <div class="paper-note">※ 허가자료 페이지에서 원본을 크게 보실 수 있습니다</div>
     </div>
   </div>
