@@ -40,10 +40,8 @@ SITE = {
     "company_lao": "K GLOBAL LAO Sole Co., Ltd",  # 라오스 법인명 (간판 표기)
     "ceo": "구본건",
     "email": "glaos2024@gmail.com",
-    # TODO(클라이언트 확인): 한국 사무실 유선 전화번호
-    "tel_kr": "0XX-XXX-XXXX",
-    # TODO(클라이언트 확인): 한국 휴대전화
-    "mobile_kr": "010-0000-0000",
+    "tel_kr": "1551-9924",
+    "mobile_kr": "010-2608-9987",
     "tel_laos": "+856 20 9616 7176",
     "tel_vn": "+84 037 418 1199",
     "addr_kr": "전남광주통합특별시 북구 하서로 421 양산빌딩 5층",
