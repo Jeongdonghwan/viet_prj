@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Resolve-DnsName xn--p89a0nf3wosl8heqodix9a.kr -Type A -ErrorAction SilentlyContinue)",
+      "PowerShell(Resolve-DnsName www.xn--p89a0nf3wosl8heqodix9a.kr -Type A -ErrorAction SilentlyContinue)"
+    ]
+  }
+}

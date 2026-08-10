@@ -47,30 +47,7 @@
     </div>
 
     {% else %}
-    {# 등록된 여성회원이 없을 때 — 잠금 더미 노출 #}
-    <div class="member-grid rv">
-      {% set dummy = [
-        ('P○○ 님 · 24세', '비엔티안 · 한국어 학습 중'),
-        ('S○○ 님 · 26세', '루앙프라방 · 회사원'),
-        ('K○○ 님 · 23세', '비엔티안 · 대학 재학'),
-        ('V○○ 님 · 28세', '팍세 · 자영업'),
-        ('N○○ 님 · 25세', '비엔티안 · 간호사'),
-        ('T○○ 님 · 27세', '사반나켓 · 교사'),
-        ('L○○ 님 · 24세', '비엔티안 · 판매직'),
-        ('C○○ 님 · 29세', '루앙프라방 · 미용사'),
-      ] %}
-      {% for name, note in dummy %}
-      <div class="mem-card">
-        <div class="mem-photo">
-          <div class="ph">[여성회원 사진]</div>
-          {% if not viewer_approved %}
-          <div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div>
-          {% endif %}
-        </div>
-        <div class="mem-info"><b>{{ name }}</b><em>{{ note }}</em></div>
-      </div>
-      {% endfor %}
-    </div>
+    <p class="rv" style="text-align:center;color:var(--ink-soft);margin-top:48px">새로운 여성회원 프로필을 준비하고 있습니다. 곧 만나보실 수 있어요.</p>
     {% endif %}
   </div>
 </section>

@@ -59,7 +59,8 @@
   </div>
 </section>
 
-<!-- 여성회원 미리보기 -->
+<!-- 여성회원 미리보기 — 등록된 회원이 있을 때만 노출 -->
+{% if preview_members %}
 <section class="members-sec">
   <div class="wrap">
     <div class="sec-head rv">
@@ -70,7 +71,6 @@
       <p>프로필과 사진은 개인정보 보호를 위해 <b>회원가입 후에만</b> 열람하실 수 있습니다.</p>
     </div>
     <div class="member-grid">
-      {% if preview_members %}
       {% for m in preview_members %}
       {% set main = (m.photos | selectattr('is_main') | first) or (m.photos | first) %}
       <div class="mem-card rv{% if loop.index0 % 3 == 1 %} rv-d1{% elif loop.index0 % 3 == 2 %} rv-d2{% endif %}">
@@ -83,27 +83,6 @@
         <div class="mem-info"><b>{{ m.name_masked }} 님 · {{ m.age }}세</b><em>{{ m.region }}{% if m.job_note %} · {{ m.job_note }}{% endif %}</em></div>
       </div>
       {% endfor %}
-      {% else %}
-      {# 등록된 여성회원이 없을 때 더미 #}
-      {% set preview = [
-        ('P○○ 님 · 24세', '비엔티안 · 한국어 학습 중', true),
-        ('S○○ 님 · 26세', '루앙프라방 · 회사원', false),
-        ('K○○ 님 · 23세', '비엔티안 · 대학 재학', true),
-        ('V○○ 님 · 28세', '팍세 · 자영업', false),
-        ('N○○ 님 · 25세', '비엔티안 · 간호사', false),
-        ('T○○ 님 · 27세', '사반나켓 · 교사', false),
-      ] %}
-      {% for name, note, is_new in preview %}
-      <div class="mem-card rv{% if loop.index0 % 3 == 1 %} rv-d1{% elif loop.index0 % 3 == 2 %} rv-d2{% endif %}">
-        <div class="mem-photo">
-          {% if is_new %}<span class="mem-new">NEW</span>{% endif %}
-          <div class="ph">[여성회원 사진]</div>
-          <div class="mem-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>가입 후 열람</span></div>
-        </div>
-        <div class="mem-info"><b>{{ name }}</b><em>{{ note }}</em></div>
-      </div>
-      {% endfor %}
-      {% endif %}
     </div>
     <div class="members-cta rv">
       <a class="btn btn-navy" style="padding:16px 36px;font-size:16.5px" href="{{ url_for('auth.signup_form') }}">무료 회원가입하고 프로필 전체 보기</a>
@@ -111,6 +90,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- 3대 직영 -->
 <section>
