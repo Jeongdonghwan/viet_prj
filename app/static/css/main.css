@@ -115,6 +115,21 @@ footer.site .links a{color:#CBD1BE;font-weight:600}
 .sticky-cta .join{background:var(--brand);color:#fff}
 @media(max-width:768px){.sticky-cta{display:grid}}
 
+/* 메인 팝업 */
+.popup-overlay{position:fixed;inset:0;z-index:400;background:rgba(24,28,20,.6);display:flex;align-items:center;justify-content:center;padding:20px}
+.popup-overlay[hidden]{display:none}
+.popup-box{position:relative;width:min(440px,92vw);background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.popup-box img{width:100%;display:block}
+.popup-x{position:absolute;top:10px;right:10px;width:34px;height:34px;border:none;border-radius:50%;background:rgba(24,28,20,.55);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.popup-x:hover{background:rgba(24,28,20,.8)}
+.popup-bar{display:flex;border-top:1px solid var(--line)}
+.popup-bar button{flex:1;border:none;background:#fff;padding:13px 6px;font-size:13.5px;font-weight:700;color:var(--ink-soft);cursor:pointer;font-family:var(--sans)}
+.popup-bar button+button{border-left:1px solid var(--line)}
+.popup-bar button:hover{background:var(--bg-warm);color:var(--ink)}
+.popup-bar .pclose{flex:0 0 84px;background:var(--brand);color:#fff}
+.popup-bar .pclose:hover{background:var(--brand-deep);color:#fff}
+@media(max-height:760px){.popup-box{width:min(380px,90vw)}}
+
 /* 라이트박스 (허가자료 확대) */
 .lightbox{position:fixed;inset:0;z-index:500;background:rgba(24,28,20,.9);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
 .lightbox.open{display:flex}

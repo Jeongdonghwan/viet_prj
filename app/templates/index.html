@@ -4,6 +4,19 @@
 {% block body_class %}pg-home{% endblock %}
 
 {% block content %}
+<!-- 메인 팝업 -->
+<div class="popup-overlay" id="mainPopup" hidden>
+  <div class="popup-box" role="dialog" aria-modal="true" aria-label="안내 팝업">
+    <button class="popup-x" type="button" aria-label="팝업 닫기">&times;</button>
+    <img src="{{ url_for('static', filename='img/popup.jpg') }}" alt="지사 및 각 지역 웨딩매니저 모집 — 업계 최고 대우 보장, 문의 {{ site.tel_kr }}">
+    <div class="popup-bar">
+      <button type="button" data-hide-days="1">오늘 하루 보지 않기</button>
+      <button type="button" data-hide-days="7">일주일 보지 않기</button>
+      <button type="button" class="pclose">닫기</button>
+    </div>
+  </div>
+</div>
+
 <!-- HERO — 풀스크린 시네마틱 -->
 <div class="hero">
   {# 좌측 배경: 동일 사진의 블러 확장 — 화면 전체가 한 컷처럼 보이게 #}
@@ -209,4 +222,38 @@
   </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+// 메인 팝업 — 오늘 하루 / 일주일 보지 않기 (localStorage)
+(function(){
+  var KEY = 'popupHideUntil';
+  var pop = document.getElementById('mainPopup');
+  if (!pop) return;
+  var hideUntil = 0;
+  try { hideUntil = parseInt(localStorage.getItem(KEY) || '0', 10); } catch(e) {}
+  if (Date.now() < hideUntil) return;   // 숨김 기간 중
+  pop.hidden = false;
+  document.body.style.overflow = 'hidden';
+
+  function close(){ pop.hidden = true; document.body.style.overflow = ''; }
+  function hideFor(days){
+    var until;
+    if (days === 1) {           // 오늘 하루 = 오늘 자정까지
+      var d = new Date(); d.setHours(24, 0, 0, 0); until = d.getTime();
+    } else {
+      until = Date.now() + days * 86400000;
+    }
+    try { localStorage.setItem(KEY, String(until)); } catch(e) {}
+    close();
+  }
+  pop.querySelector('.popup-x').addEventListener('click', close);
+  pop.querySelector('.pclose').addEventListener('click', close);
+  pop.querySelectorAll('[data-hide-days]').forEach(function(b){
+    b.addEventListener('click', function(){ hideFor(parseInt(b.dataset.hideDays, 10)); });
+  });
+  pop.addEventListener('click', function(e){ if (e.target === pop) close(); });
+})();
+</script>
 {% endblock %}
