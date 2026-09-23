@@ -25,7 +25,7 @@
 
 {% block header %}
 {% set nav = [
-  ('pages.greeting', '인삿말'),
+  ('pages.greeting', '인사말'),
   ('pages.license_page', '허가자료'),
   ('pages.process', '절차 및 비용'),
   ('pages.video_meeting', '화상맞선'),
@@ -34,7 +34,10 @@
 ] %}
 <header class="site">
   <div class="hd">
-    <a class="logo" href="{{ url_for('pages.index') }}">{{ site.brand_ko }}<span>{{ site.brand_en }}</span></a>
+    <div style="display:flex;align-items:center;gap:14px;min-width:0">
+      <a class="logo" href="{{ url_for('pages.index') }}">{{ site.brand_ko }}<span>{{ site.brand_en }}</span></a>
+      <a class="hd-tel" href="tel:{{ site.tel_kr | replace('-', '') }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"/></svg>{{ site.tel_kr }}</a>
+    </div>
     <nav class="gnb">
       {% for ep, label in nav %}
       <a href="{{ url_for(ep) }}" {% if request.endpoint == ep %}class="on"{% endif %}>{{ label }}</a>
@@ -72,7 +75,7 @@
   <div class="wrap">
     <div class="f-logo">{{ site.brand_ko }} {{ site.brand_en }}</div>
     <div class="links">
-      <a href="{{ url_for('pages.greeting') }}">인삿말</a><a href="{{ url_for('pages.license_page') }}">허가자료</a><a href="{{ url_for('pages.process') }}">절차 및 비용</a><a href="{{ url_for('pages.faq') }}">고객센터</a><a href="{{ url_for('pages.location') }}">찾아오시는길</a>
+      <a href="{{ url_for('pages.greeting') }}">인사말</a><a href="{{ url_for('pages.license_page') }}">허가자료</a><a href="{{ url_for('pages.process') }}">절차 및 비용</a><a href="{{ url_for('pages.faq') }}">고객센터</a><a href="{{ url_for('pages.location') }}">찾아오시는길</a>
     </div>
     <p>상호: {{ site.company_kr }} · 대표: {{ site.ceo }} · 사업자등록번호: {{ site.biz_no }} · 업종: 여행사 · 국제결혼중개업</p>
     {# TODO(클라이언트 확인): 한국 국제결혼중개업 등록번호 확정 시 site.broker_no 기재 #}
