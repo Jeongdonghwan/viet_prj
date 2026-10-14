@@ -20,8 +20,8 @@
 <!-- HERO — 풀스크린 시네마틱 -->
 <div class="hero">
   {# 좌측 배경: 동일 사진의 블러 확장 — 화면 전체가 한 컷처럼 보이게 #}
-  <img class="hero-blur" src="{{ url_for('static', filename='img/wedding-02.jpg') }}" alt="" aria-hidden="true">
-  <img class="hero-bg" src="{{ url_for('static', filename='img/wedding-02.jpg') }}" alt="{{ site.brand_ko }} 성혼 커플 웨딩 촬영">
+  <img class="hero-blur" src="{{ url_for('static', filename='img/hero-01.jpg') }}" alt="" aria-hidden="true">
+  <img class="hero-bg" src="{{ url_for('static', filename='img/hero-01.jpg') }}" alt="{{ site.brand_ko }} 성혼 커플 웨딩 촬영">
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap hero-content">
     <h1>라오스에서 만나는<br><span class="hl">단 하나의 진심</span></h1>
@@ -55,12 +55,12 @@
     </div>
     <div class="gallery-grid">
       {% set gallery = [
-        ('wedding-04.jpg', '라오스 전통 의상을 입고 — 혼례 기념 촬영'),
-        ('wedding-02.jpg', '화상맞선으로 시작된 인연, 웨딩 촬영까지'),
-        ('wedding-09.jpg', '결혼을 약속하고 함께 선 두 사람'),
-        ('wedding-07.jpg', '양가 가족이 함께한 기념 촬영'),
-        ('wedding-03.jpg', '전통 혼례식 — 축복의 실을 묶는 바씨 의식'),
-        ('wedding-10.jpg', '가족과 하객의 축복 속에 올린 전통 혼례'),
+        ('couple-01.jpg', '하객들의 꽃잎 축복 속에 — 행복한 결혼식'),
+        ('couple-02.jpg', '라오스 전통 의상을 입고 — 혼례 기념 촬영'),
+        ('couple-03.jpg', '메콩강 노을 아래, 신혼여행의 추억'),
+        ('couple-04.jpg', '화상맞선으로 시작된 인연, 웨딩 촬영까지'),
+        ('couple-05.jpg', '라오스 사원 앞에서 함께한 여행'),
+        ('couple-06.jpg', '꽃목걸이를 손에 든 전통 혼례의 날'),
       ] %}
       {% for img, cap in gallery %}
       <div class="g-card rv{% if loop.index0 % 3 == 1 %} rv-d1{% elif loop.index0 % 3 == 2 %} rv-d2{% endif %}">
